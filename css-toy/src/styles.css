@@ -109,10 +109,11 @@ html input[type="range"]::-ms-fill-upper {
 
 #bottom {
   position: fixed;
-  /* margin: 10px; */
-  padding: 10px;
-  bottom: 0%;
-  width: 92%;
+  margin-left: 12%;
+  margin-right: 12%;
+  /* padding: 10px; */
+  bottom: 2%;
+  width: 75%;
 }
 
 #top {
