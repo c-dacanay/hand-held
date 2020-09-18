@@ -14,13 +14,14 @@ function init() {
   let l3Img = document.getElementById("layer3");
   let l3Input = document.getElementById("l3-input");
 
+  l1Img.style.opacity = l1Input.value;
+  l2Img.style.opacity = l2Input.value;
+  l3Img.style.opacity = l3Input.value;
+
   function update() {
     l1Img.style.opacity = l1Input.value;
     l2Img.style.opacity = l2Input.value;
     l3Img.style.opacity = l3Input.value;
-    // console.log("l1Img", l1Img.style.opacity);
-    // console.log("l2Img", l2Img.style.opacity);
-    // console.log("l3Img", l3Img.style.opacity);
   }
 
   l1Input.addEventListener("input", update);
