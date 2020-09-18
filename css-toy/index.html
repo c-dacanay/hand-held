@@ -9,21 +9,44 @@
   </head>
 
   <body>
-    <div id="layer1" class="test rotating">
-      <img id="outer-img" src="src/book.svg" />
-    </div>
-    <div id="layer2" class="test rotating">
-      <img width="inner-img" src="src/star.svg" />
-    </div>
-    <div id="layer3" class="test rotating centered">
-      <img width="outer-img" src="src/star.svg" />
-    </div>
+    <div class="gradientSpin">
+      <div id="layer1" class="test rotating">
+        <img id="img1" src="src/img-1.svg" />
+      </div>
+      <div id="layer2" class="test rotating">
+        <img width="img2" src="src/img-2.svg" />
+      </div>
+      <div id="layer3" class="test rotating">
+        <img width="img3" src="src/img-3.svg" />
+      </div>
 
-    <div id="bottom" class="test">
-      <input id="l1-input" type="range" min="0" max="1" value=".5" step=".01" />
-      <input id="l2-input" type="range" min="0" max="1" value=".5" step=".01" />
-      <input id="l3-input" type="range" min="0" max="1" value=".5" step=".01" />
-      <!-- <input id="l3-input" type="range" min="0" max="1" value=".5" step=".01" /> -->
+      <div id="bottom" class="test">
+        <input
+          id="l1-input"
+          type="range"
+          min="0"
+          max="1"
+          value=".5"
+          step=".01"
+        />
+        <input
+          id="l2-input"
+          type="range"
+          min="0"
+          max="1"
+          value=".5"
+          step=".01"
+        />
+        <input
+          id="l3-input"
+          type="range"
+          min="0"
+          max="1"
+          value=".5"
+          step=".01"
+        />
+        <!-- <input id="l3-input" type="range" min="0" max="1" value=".5" step=".01" /> -->
+      </div>
     </div>
   </body>
 </html>

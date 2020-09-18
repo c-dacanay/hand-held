@@ -11,25 +11,18 @@ body {
   font-family: sans-serif;
 }
 
-.test {
+/* .test {
   border-width: 2px;
   border-color: crimson;
   border-style: dashed;
-}
-
-.centered {
-  top: 50%;
-  left: 50%;
-  /* margin-top: -50px;
-  margin-left: -50px; */
-}
+} */
 
 #layer1 {
   position: relative;
   z-index: 0;
-  background-color: #00ccff;
-  width: 100%;
-  height: 100%;
+  /* background-color: #00ccff; */
+  /* width: 100%;
+  height: 100%; */
 }
 
 #layer2 {
@@ -40,18 +33,19 @@ body {
   left: 0;
   right: 0;
   top: 36%;
-  width: 40%;
-  height: 40%;
-  background-color: #6f0;
+  /* width: 40%;
+  height: 40%; */
+  /* background-color: #6f0; */
 }
 #layer3 {
   position: absolute;
   z-index: 2;
+  /* background-color: #000000; */
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
-  background-color: #000000;
+  top: 10%;
 }
 
 .rotating {
@@ -71,29 +65,48 @@ body {
   width: 75%;
 }
 
-/* 
-.rotating {
-  background-size: 600% 600%;
-  -webkit-animation: spin-gradient 5s ease infinite;
-  -moz-animation: spin-gradient 5s ease infinite;
-  animation: spin-gradient 5s ease infinite;
+.gradientSpin {
+  background: linear-gradient(360deg, #00ffbd, #232323, #ffffff, #db7bff);
+  background-size: 800% 800%;
+
+  -webkit-animation: gradient-spin 0s ease infinite;
+  -moz-animation: gradient-spin 30s ease infinite;
+  animation: gradient-spin 30s ease infinite;
 }
 
-@-webkit-keyframes spin-gradient {
-  0%{background-position:50% 0%}
-  50%{background-position:50% 100%}
-  100%{background-position:50% 0%}
+@-webkit-keyframes gradient-spin {
+  0% {
+    background-position: 4% 0%;
+  }
+  50% {
+    background-position: 97% 100%;
+  }
+  100% {
+    background-position: 4% 0%;
+  }
 }
-@-moz-keyframes spin-gradient {
-  0%{background-position:50% 0%}
-  50%{background-position:50% 100%}
-  100%{background-position:50% 0%}
+@-moz-keyframes gradient-spin {
+  0% {
+    background-position: 4% 0%;
+  }
+  50% {
+    background-position: 97% 100%;
+  }
+  100% {
+    background-position: 4% 0%;
+  }
 }
-@keyframes spin-gradient {
-  0%{background-position:50% 0%}
-  50%{background-position:50% 100%}
-  100%{background-position:50% 0%}
-} */
+@keyframes gradient-spin {
+  0% {
+    background-position: 4% 0%;
+  }
+  50% {
+    background-position: 97% 100%;
+  }
+  100% {
+    background-position: 4% 0%;
+  }
+}
 
 @-webkit-keyframes rotating /* Safari and Chrome */ {
   from {
