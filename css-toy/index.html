@@ -9,46 +9,21 @@
   </head>
 
   <body>
-    <div id="bigboi" class="test rotating">
+    <div id="layer1" class="test rotating">
       <img id="outer-img" src="src/book.svg" />
     </div>
-    <div class="test rotating">
-      <img id="inner-img" src="src/star.svg" />
+    <div id="layer2" class="test rotating">
+      <img width="inner-img" src="src/star.svg" />
+    </div>
+    <div id="layer3" class="test rotating">
+      <img width="outer-img" src="src/star.svg" />
     </div>
 
     <div id="bottom" class="test">
-      <input
-        id="img-input"
-        type="range"
-        min="0"
-        max="1"
-        value=".5"
-        step=".01"
-      />
-      <input
-        id="img-input"
-        type="range"
-        min="0"
-        max="1"
-        value=".5"
-        step=".01"
-      />
-      <input
-        id="img-input"
-        type="range"
-        min="0"
-        max="1"
-        value=".5"
-        step=".01"
-      />
-      <input
-        id="img-input"
-        type="range"
-        min="0"
-        max="1"
-        value=".5"
-        step=".01"
-      />
+      <input id="l1-input" type="range" min="0" max="1" value=".5" step=".01" />
+      <input id="l2-input" type="range" min="0" max="1" value=".5" step=".01" />
+      <input id="l3-input" type="range" min="0" max="1" value=".5" step=".01" />
+      <!-- <input id="l3-input" type="range" min="0" max="1" value=".5" step=".01" /> -->
     </div>
   </body>
 </html>
