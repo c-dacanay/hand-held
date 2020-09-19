@@ -14,6 +14,8 @@ function init() {
   let l3Img = document.getElementById("layer3");
   let l3Input = document.getElementById("l3-input");
 
+
+  //set opacity
   l1Img.style.opacity = l1Input.value;
   l2Img.style.opacity = l2Input.value;
   l3Img.style.opacity = l3Input.value;
@@ -24,6 +26,10 @@ function init() {
     l3Img.style.opacity = l3Input.value;
   }
 
+  function click() {
+    console.log("hi")
+  }
+  document.body.addEventListener("mousedown", click);
   l1Input.addEventListener("input", update);
   l2Input.addEventListener("input", update);
   l3Input.addEventListener("input", update);

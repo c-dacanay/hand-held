@@ -3,6 +3,7 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
+  margin: 0;
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -32,10 +33,7 @@ body {
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 36%;
-  /* width: 40%;
-  height: 40%; */
-  /* background-color: #6f0; */
+  top: 10%;
 }
 #layer3 {
   position: absolute;
@@ -45,15 +43,15 @@ body {
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 10%;
+  top: 25%;
 }
 
 .rotating {
-  -webkit-animation: rotating 4s linear infinite;
-  -moz-animation: rotating 4s linear infinite;
-  -ms-animation: rotating 4s linear infinite;
-  -o-animation: rotating 4s linear infinite;
-  animation: rotating 4s linear infinite;
+  -webkit-animation: rotating 12s linear infinite;
+  -moz-animation: rotating 12s linear infinite;
+  -ms-animation: rotating 12s linear infinite;
+  -o-animation: rotating 12s linear infinite;
+  animation: rotating 12s linear infinite;
 }
 
 #bottom {
@@ -66,10 +64,10 @@ body {
 }
 
 .gradientSpin {
-  background: linear-gradient(360deg, #00ffbd, #232323, #ffffff, #db7bff);
+  background: linear-gradient(360deg, #f6ce46, #ed6e7e, #aeeee1, #6ce294);
   background-size: 800% 800%;
 
-  -webkit-animation: gradient-spin 0s ease infinite;
+  -webkit-animation: gradient-spin 30s ease infinite;
   -moz-animation: gradient-spin 30s ease infinite;
   animation: gradient-spin 30s ease infinite;
 }
@@ -148,7 +146,7 @@ html input[type="range"] {
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   html input[type="range"] {
     overflow: hidden;
-    height: 20px;
+    height: 15px;
     -webkit-appearance: none;
     background-color: #ddd;
   }
@@ -167,12 +165,12 @@ html input[type="range"] {
     height: 40px;
     cursor: ew-resize;
     background: #fff;
-    box-shadow: -1000px 0 0 990px #1597ff, inset 0 0 0 15px #1597ff;
+    box-shadow: -1000px 0 0 990px #3a3a3a, inset 0 0 0 15px #3a3a3a;
     border-radius: 50%;
     transition: box-shadow 0.2s ease-in-out;
     position: relative;
     top: -10px;
-    z-index: 2;
+    z-index: 4;
   }
 }
 /* html input[type="range"]::-moz-range-progress {
