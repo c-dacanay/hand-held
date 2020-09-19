@@ -54,6 +54,11 @@ body {
   animation: rotating 12s linear infinite;
 }
 
+.paused {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
 #bottom {
   position: fixed;
   z-index: 4;

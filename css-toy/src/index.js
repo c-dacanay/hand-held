@@ -3,6 +3,7 @@
 
 
 //Questions: when I set a background-image gradient, opacity of the 1st div could make it impossible to see divs below.
+//How can you pause a CSS animation without losing a position?
 
 function init() {
   let l1Img = document.getElementById("layer1");
@@ -28,6 +29,10 @@ function init() {
 
   function click() {
     console.log("hi")
+    l1Img.classList.toggle('paused');
+    l2Img.classList.toggle('paused');
+    l3Img.classList.toggle('paused');
+    console.log(l3Img);
   }
   document.body.addEventListener("mousedown", click);
   l1Input.addEventListener("input", update);
