@@ -56,6 +56,9 @@ body {
 
 .paused {
   -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  -ms-animation-play-state: paused;
+  -o-animation-play-state: paused;
   animation-play-state: paused;
 }
 
@@ -69,7 +72,7 @@ body {
 }
 
 .gradientSpin {
-  background: linear-gradient(360deg, #f6ce46, #ed6e7e, #aeeee1, #6ce294);
+  background: linear-gradient(360deg, #64a999, #ecebeb, #eeda7b, #242424);
   background-size: 800% 800%;
 
   -webkit-animation: gradient-spin 30s ease infinite;

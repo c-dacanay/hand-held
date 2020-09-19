@@ -20,6 +20,9 @@ function init() {
   let l3Img = document.getElementById("layer3");
   let l3Input = document.getElementById("l3-input");
 
+  let gradient = document.getElementById("gradientSpin")
+
+  // let ranColor = colors[Math.floor(Math.random(0, colors.length))];
 
   //set opacity
   l1Img.style.opacity = l1Input.value;
@@ -34,20 +37,25 @@ function init() {
 
   function click() {
     //oh man I know there's a way to do this.
-    // for (let i = 0, i < 3, i++) {
-    //   l[i]Img.classList.toggle('paused');
-    // }
-
     l1kids = l1Img.children;
+    l2kids = l2Img.children;
+    l3kids = l3Img.children;
 
+    kidArray = [l1kids, l2kids, l3kids];
+
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < kidArray[i].length; j++) {
+        let layer = kidArray[i]
+        let ranColor = colors[Math.floor(Math.random(0, 7) * colors.length)];
+        kidArray[i][j].style.fill = ranColor;
+        // console.log('kids')
+      }
+    }
     l1Img.classList.toggle('paused');
     l2Img.classList.toggle('paused');
     l3Img.classList.toggle('paused');
-
-    //set svg color
-    l1kids[0].style.fill = "#64a999";
-    console.log(l1kids[0])
   }
+
   document.body.addEventListener("mousedown", click);
 
   l1Input.addEventListener("input", update);
