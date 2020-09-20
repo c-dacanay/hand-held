@@ -2,7 +2,11 @@
 
 [Website](https://c-dacanay.github.io/hand-held/css-toy/) (viewed best on mobile) | Blog Post
 
-Things I wanted to get out of this assignment: - [x] Play with SVGs - [x] Better understand CSS animations - [x] Better understand breakpoints/mobile first development
+Things I wanted to get out of this assignment:
+
+- [x] Play with SVGs
+- [x] Better understand CSS animations
+- [x] Better understand breakpoints/mobile first development
 
 ### Credit
 
@@ -12,9 +16,9 @@ Things I wanted to get out of this assignment: - [x] Play with SVGs - [x] Better
 
 #### Code
 
-Slider CSS Help: [Lucas Miranda](https://codepen.io/lucas-miranda-the-encoder/pen/OJLBWYd)
-Gradients: [Gradient Animator](https://www.gradient-animator.com/)
-Toggle Animation: [Tympanus.net](https://tympanus.net/codrops/css_reference/animation-play-state/)
+Slider CSS Help: [Lucas Miranda](https://codepen.io/lucas-miranda-the-encoder/pen/OJLBWYd)  
+Gradients: [Gradient Animator](https://www.gradient-animator.com/)  
+Toggle Animation: [Tympanus.net](https://tympanus.net/codrops/css_reference/animation-play-state/)  
 Manipulating SVGs: [Peter Collingridge](http://www.petercollingridge.co.uk/tutorials/svg/interactive/javascript/)
 
 ## Author
