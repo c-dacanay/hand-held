@@ -4,4 +4,4 @@ I'm taking a class! Here are the projects. Tryin' class repos this semester, see
 
 ## CSS Toy
 
-[Website](https://c-dacanay.github.io/hand-held/css-toy/) | README | Blog Post
+[Website](https://c-dacanay.github.io/hand-held/css-toy/) | [README](https://github.com/c-dacanay/hand-held/tree/master/css-toy) | Blog Post
