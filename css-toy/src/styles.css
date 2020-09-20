@@ -17,7 +17,8 @@ h1 {
   line-height: 1.3rem;
 }
 
-body {
+body,
+p {
   font-size: 1rem;
 }
 
@@ -35,9 +36,7 @@ a {
 #layer1 {
   position: relative;
   z-index: 0;
-  /* background-color: #00ccff; */
-  /* width: 100%;
-  height: 100%; */
+  top: 10%;
 }
 
 #layer2 {
@@ -47,17 +46,39 @@ a {
   margin-right: auto;
   left: 0;
   right: 0;
+  width: 125%;
   top: 10%;
 }
 #layer3 {
   position: absolute;
   z-index: 2;
-  /* background-color: #000000; */
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   top: 25%;
+}
+
+#credits {
+  opacity: 80%;
+  display: none;
+  z-index: 6;
+  width: 55%;
+  padding: 1.5rem;
+  background-color: white;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 20%;
+}
+
+#bottom {
+  position: fixed;
+  z-index: 4;
+  margin-left: 12%;
+  margin-right: 12%;
+  bottom: 2%;
+  width: 75%;
 }
 
 .rotating {
@@ -74,26 +95,6 @@ a {
   -ms-animation-play-state: paused;
   -o-animation-play-state: paused;
   animation-play-state: paused;
-}
-
-#bottom {
-  position: fixed;
-  z-index: 4;
-  margin-left: 12%;
-  margin-right: 12%;
-  bottom: 2%;
-  width: 75%;
-}
-
-#credits {
-  z-index: 6;
-  width: 55%;
-  padding: 1.5rem;
-  background-color: white;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  top: 40%;
 }
 
 .gradientSpin {
@@ -172,49 +173,59 @@ html input[type="range"] {
   border-radius: 500px;
   width: 100%;
   max-width: 100%;
-  /* margin: 10px; */
+  transition: box-shadow 0.2s ease-in-out;
+}
+html input[type="range"] {
+  overflow: hidden;
+  height: 15px;
+  -webkit-appearance: none;
+  background-color: #ddd;
+}
+
+html input[type="range"]::-webkit-slider-runnable-track {
+  height: 20px;
+  -webkit-appearance: none;
+  color: #444;
+  margin-top: -1px;
   transition: box-shadow 0.2s ease-in-out;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  html input[type="range"] {
-    overflow: hidden;
-    height: 15px;
-    -webkit-appearance: none;
-    background-color: #ddd;
-  }
+html input[type="range"]::-webkit-slider-thumb {
+  width: 40px;
+  -webkit-appearance: none;
+  height: 40px;
+  cursor: ew-resize;
+  background: #fff;
+  box-shadow: -1000px 0 0 990px #3a3a3a, inset 0 0 0 15px #3a3a3a;
+  border-radius: 50%;
+  transition: box-shadow 0.2s ease-in-out;
+  position: relative;
+  top: -10px;
+  z-index: 4;
+}
 
-  html input[type="range"]::-webkit-slider-runnable-track {
-    height: 20px;
-    -webkit-appearance: none;
-    color: #444;
-    margin-top: -1px;
-    transition: box-shadow 0.2s ease-in-out;
-  }
-
-  html input[type="range"]::-webkit-slider-thumb {
-    width: 40px;
-    -webkit-appearance: none;
-    height: 40px;
-    cursor: ew-resize;
-    background: #fff;
-    box-shadow: -1000px 0 0 990px #3a3a3a, inset 0 0 0 15px #3a3a3a;
-    border-radius: 50%;
-    transition: box-shadow 0.2s ease-in-out;
-    position: relative;
-    top: -10px;
-    z-index: 4;
-  }
-}
-/* html input[type="range"]::-moz-range-progress {
-  background-color: #43e5f7;
-}
-html input[type="range"]::-moz-range-track {
-  background-color: #9a905d;
-}
-html input[type="range"]::-ms-fill-lower {
-  background-color: #43e5f7;
-}
-html input[type="range"]::-ms-fill-upper {
-  background-color: #9a905d;
+/* .button {
+  background-color: #ffffff;
+  border: none;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+  font-display: swap;
+  color: #242424;
+  padding: 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 400;
+  margin: auto;
+  margin: 4px 2px;
 } */
+
+@media screen and (min-width: 730px) {
+  #layer2 {
+    width: 50%;
+  }
+
+  #layer3 {
+    width: 43%;
+  }
+}
