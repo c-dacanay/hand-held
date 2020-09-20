@@ -1,11 +1,10 @@
 //CSS slider help: https://codepen.io/lucas-miranda-the-encoder/pen/OJLBWYd
-//Gradients: http://127.0.0.1:5500/css-toy/index.html
+//Gradients: https://www.gradient-animator.com/
 //Toggle Animation: https://tympanus.net/codrops/css_reference/animation-play-state/
 //SVGs: http://www.petercollingridge.co.uk/tutorials/svg/interactive/javascript/
 
 
 //Questions: when I set a background-image gradient, opacity of the 1st div could make it impossible to see divs below.
-//How can you pause a CSS animation without losing a position?
 
 let colors = ["#64a999", "#ecebeb", "#eeda7b", "#242424", "#8c9898", "#dd177c", "#60a6bd"]
 
