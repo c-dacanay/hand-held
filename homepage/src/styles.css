@@ -1,0 +1,60 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+p {
+  margin-left: .5rem;
+  line-height: .5rem;
+  font-style: italic;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper > * {
+  padding: 0px;
+  flex: 1 100%;
+}
+
+.test {
+  border-style: solid;
+  border-width: .5px;
+  border-color: red;
+}
+
+.small {
+  display: flex;
+  font-weight: bold;
+}
+
+.small p {
+  line-height: 0;
+  font-style: italic;
+}
+
+.content {
+  display: flex;
+  font-size: 2.5rem;
+}
+
+.info {
+  align-items: center;
+  margin-left: auto;
+ background-color: lightblue;
+ padding-right: 1rem;
+}
+
+.info p {
+  font-style: normal;
+}
+/* @media screen and (min-width: 730px) {
+} */
