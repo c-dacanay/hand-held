@@ -1,12 +1,20 @@
+
+let monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
+];
+
+let dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
 let today = new Date();
-let dd = String(today.getDate()).padStart(2, '0');
-// let mm = String(today.getMonth() + 1).padStart(2, '0');
-let mm = String(today.getMonth() + 1);
+console.log(today.getDay());
+let dd = String(dayNames[today.getDay()]);
+let date = String(today.getDate());
+let mm = String(monthNames[today.getMonth()]);
 let hour = String(today.getHours()).padStart(1, '0');
 let min = String(today.getMinutes());
 
 let time = hour + ':' + min;
-// today = mm + '/' + dd;
+today = dd + ', ' + mm + ' ' + date;
 
 console.log(today);
 console.log(time);

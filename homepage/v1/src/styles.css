@@ -41,7 +41,7 @@ p {
 .small {
   display: flex;
   font-weight: bold;
-  box-shadow: 1px 2px 3px white;
+  box-shadow: 6px 2px 13px white;
 }
 
 .small p {
@@ -50,7 +50,12 @@ p {
 }
 
 .content:active{
-  box-shadow: 1px 2px 10px black;
+  /* box-shadow: 1px 2px 10px black; */
+  padding-right: 2rem;
+  padding-left: 2rem;
+  background: white;
+  /* opacity: .5; */
+  transform: scale(1.2);
 }
 
 .content {
@@ -58,6 +63,7 @@ p {
   font-size: 2rem;
   height: 14%;
   box-shadow: 1px 2px 3px white;
+  transition: transform .2s;
 }
 
 .info {
