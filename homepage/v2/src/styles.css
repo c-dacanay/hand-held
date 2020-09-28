@@ -5,6 +5,7 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
   font-family: "IBM Plex Mono", monospace;
+  -webkit-touch-callout: none; 
 }
 
 p {
@@ -46,6 +47,12 @@ svg {
   flex: 1 100%;
 }
 
+#bg {
+  position: absolute;
+  z-index: -1;
+  opacity: .2;
+}
+
 /* .test {
   border-style: solid;
   border-width: .5px;
@@ -77,14 +84,15 @@ svg {
 }
 
 button {
-  /* background-color: transparent; */
+  background-color: transparent;
   border: 0;
   /* color: #fefbef; */
   font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
+  font-size: 3rem;
+  /* font-weight: 600; */
   /* line-height: 1; */
-  margin: .5rem;
-  padding: 1rem;
+  /* margin: .5rem; */
+  /* padding: 1rem; */
   width: 80%; /* Large, mobile-friendly touch target */
 }
 
