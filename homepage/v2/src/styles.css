@@ -6,6 +6,8 @@ body {
   overflow-y: hidden;
   font-family: "IBM Plex Mono", monospace;
   -webkit-touch-callout: none; 
+  background-color: hsl(190, 100%, 88%);
+  z-index: -2;
 }
 
 p {
@@ -14,7 +16,7 @@ p {
 }
 
 svg {
-  z-index: -1;
+  z-index: 0;
   position: absolute;
 }
 
