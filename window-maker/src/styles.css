@@ -1,0 +1,48 @@
+body {
+  font-family: sans-serif;
+  max-width: 500px;
+  margin: auto;
+  overflow: hidden;
+  touch-action: none !important;
+}
+
+canvas {
+  width: calc(100% - 100px);
+  /* width: calc(100% - 100px); */
+  /* width: 200%; */
+    /* width: 789px; */
+  /* height: 1067px; */
+}
+
+button, input {
+  /* padding: 20px; */
+  /* background-color: gold; */
+  border-width: 5px;
+  margin: 5px;
+  /* display: block; */
+  /* height: 80px; */
+}
+
+img {
+  object-fit: cover;
+}
+
+.test {
+  border-style: solid;
+  border-width: .5px;
+  border-color: red;
+}
+
+#bottom{
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+#app {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
