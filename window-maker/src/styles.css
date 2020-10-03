@@ -3,35 +3,41 @@ body {
   max-width: 500px;
   margin: auto;
   overflow: hidden;
+  background-color: #f9fdf5;
   touch-action: none !important;
+  font-family: "IBM Plex Mono", monospace;
 }
 
 canvas {
   width: calc(100% - 100px);
-  /* width: calc(100% - 100px); */
-  /* width: 200%; */
-    /* width: 789px; */
-  /* height: 1067px; */
 }
 
-button, input {
-  /* padding: 20px; */
-  /* background-color: gold; */
+input {
   border-width: 5px;
   margin: 5px;
-  /* display: block; */
-  /* height: 80px; */
+  margin-bottom: 25px;
 }
 
-img {
-  object-fit: cover;
+button {
+  align-self: center;
 }
 
-.test {
+p {
+  font-size: 12px;
+  line-height: 1rem;
+  text-align: center;
+}
+
+a {
+  color: #64a999;
+  font-style: italic;
+}
+
+/* .test {
   border-style: solid;
   border-width: .5px;
   border-color: red;
-}
+} */
 
 #bottom{
   /* width: 100%; */
@@ -41,7 +47,7 @@ img {
 }
 
 #app {
-  margin-top: 100px;
+  margin-top: 25px;
   width: 100%;
   display: flex;
   align-items: center;

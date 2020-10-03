@@ -2,37 +2,31 @@
 <html>
 
 <head>
-  <title>Parcel Sandbox</title>
+  <title>Window Maker</title>
   <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;1,200;1,400;1,600&display=swap"
+    rel="stylesheet" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" type="text/css" href="src/styles.css" />
 </head>
 
 <body>
+  <!-- <h1>window maker</h1> -->
   <div id="app">
     <div>
-      <button id="left">
-        < </button>
-          <button id="left2">
-            < </button>
-    </div>
-    <canvas id="canvas" width="600" height="600"></canvas>
+      <input type="image" id="left" src="./assets/icons/left.png" height="40"> </div>
+    <canvas id="canvas" width="450" height="550"></canvas>
     <div>
-      <button id="right">></button>
-      <button id="right2">></button>
-    </div>
+      <input type="image" id="right" src="./assets/icons/right.png" height="40"> </div>
   </div>
   <div class="test" id="bottom">
-    <input type="image" src="./assets/icons/win.png" width="70" height="70" id="button1" class="on">
-    <input type="image" src="./assets/icons/cloud.png" width="70" height="70" id="button2" class="on">
-    <input type="image" src="./assets/icons/ext.png" width="70" height="70" id="button3" class="on">
-    <input type="image" src="./assets/icons/speak.png" width="70" height="70" id="button4" class="on">
-    <!-- <button id="button1"><img src="./assets/icons/win.png" width="50"></button> -->
-    <!-- <button id="button1" src="./assets/icons/win.png" width="50"></button> -->
-    <!-- <button id="button2"><img src="./assets/icons/cloud.png" width="50"></button>
-    <button id="button3"><img src="./assets/icons/ext.png" width="50"></button>
-    <button id="button4"><img src="./assets/icons/speak.png" width="50"></button> -->
+    <input type="image" src="./assets/icons/winon.png" width="70" height="70" id="button1" class="on">
+    <input type="image" src="./assets/icons/cloud.png" width="70" height="70" id="button2" class="off">
+    <input type="image" src="./assets/icons/ext.png" width="70" height="70" id="button3" class="off">
+    <input type="image" src="./assets/icons/speak.png" width="70" height="70" id="button4" class="off">
   </div>
+  <button id="gaze">gaze out the window</button>
+  <p>by <a href="https://cdacanay.com" target="_blank">christina dacanay</a></p>
   <script src="src/index.js"></script>
 </body>
 

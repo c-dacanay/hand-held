@@ -1,10 +1,5 @@
-// import "./styles.css";
-
 const left = document.getElementById("left");
 const right = document.getElementById("right");
-
-const left1 = document.getElementById("left2");
-const right1 = document.getElementById("right2");
 
 const frameButton = document.getElementById("button1");
 const skyButton = document.getElementById("button2");
@@ -15,6 +10,7 @@ let frameIndex = 0;
 let skyIndex = 0;
 let extraIndex = 0;
 
+let activeButton = 0;
 //Identifying the assets
 let frameUrls = [
   "assets/frame1.png",
@@ -29,6 +25,7 @@ let skyUrls = [
 ];
 
 let extraUrls = [
+  "assets/empty.png",
   "assets/extra1.png",
   "assets/extra2.png",
   "assets/extra3.png"
@@ -37,21 +34,18 @@ let extraUrls = [
 
 //Bottom Buttons
 frameButton.addEventListener("click", () => {
-  let onImg = "assets/icons/winon.png"
-  let offImg = "assets/icons/win.png"
-  toggle(frameButton, onImg, offImg);
+  activeButton = 0;
+  buttonPresses();
 })
 
 skyButton.addEventListener("click", () => {
-  let onImg = "assets/icons/cloudon.png"
-  let offImg = "assets/icons/cloud.png"
-  toggle(skyButton, onImg, offImg);
+  activeButton = 1;
+  buttonPresses();
 })
 
 extraButton.addEventListener("click", () => {
-  let onImg = "assets/icons/exton.png"
-  let offImg = "assets/icons/ext.png"
-  toggle(extraButton, onImg, offImg);
+  activeButton = 2;
+  buttonPresses();
 })
 
 soundButton.addEventListener("click", () => {
@@ -60,94 +54,98 @@ soundButton.addEventListener("click", () => {
   toggle(soundButton, onImg, offImg);
 })
 
+//there must be a better way. arrays??? idk.
+function buttonPresses() {
+  if (activeButton == 0) {
+    frameButton.src = "assets/icons/winon.png"
+    skyButton.src = "assets/icons/cloud.png"
+    extraButton.src = "assets/icons/ext.png"
+  } else if (activeButton == 1) {
+    frameButton.src = "assets/icons/win.png"
+    skyButton.src = "assets/icons/cloudon.png"
+    extraButton.src = "assets/icons/ext.png"
+  } else if (activeButton == 2) {
+    frameButton.src = "assets/icons/win.png"
+    skyButton.src = "assets/icons/cloud.png"
+    extraButton.src = "assets/icons/exton.png"
+  }
+}
 //There is def a better way of doing this but I can't be bothered rn
+//I gotta fix this cause sound turns all the other buttons off 
 function toggle(el, onImg, offImg) {
   if (el.className != "off") {
     el.src = offImg;
     el.className = "off";
   }
   else if (el.className == "off") {
-    //Set all buttons off
-    frameButton.className = "off";
-    frameButton.src = "assets/icons/win.png"
-
-    skyButton.className = "off";
-    skyButton.src = "assets/icons/cloud.png"
-
-    extraButton.className = "off";
-    extraButton.src = "assets/icons/ext.png"
-
-    //then turn this on
     el.src = onImg;
     el.className = "on";
   }
 
   return false;
 }
-
 //Connecting frames to buttons
+left.addEventListener("click", () => {
+  if (activeButton === 0) {
+    frameIndex = (frameUrls.length + frameIndex - 1) % frameUrls.length;
+  } else if (activeButton === 1) {
+    skyIndex === (skyUrls.length + skyIndex - 1) % skyUrls.length;
+  } else if (activeButton === 2) {
+    extraIndex = (extraUrls.length + extraIndex - 1) % extraUrls.length;
+  }
+  render();
+});
+
+right.addEventListener("click", () => {
+  console.log(activeButton)
+  if (activeButton === 0) {
+    frameIndex = (frameUrls.length + frameIndex + 1) % frameUrls.length;
+  } else if (activeButton === 1) {
+    skyIndex = (skyUrls.length + skyIndex + 1) % skyUrls.length;
+  } else if (activeButton === 2) {
+    extraIndex = (extraUrls.length + extraIndex + 1) % extraUrls.length;
+  }
+  render();
+});
+
 let frameImages = frameUrls.map((url) => {
   const image = new Image();
   image.src = url;
   return image;
 });
 
-left.addEventListener("click", () => {
-  frameIndex = (frameUrls.length + frameIndex - 1) % frameUrls.length;
-  render();
-});
-right.addEventListener("click", () => {
-  frameIndex = (frameUrls.length + frameIndex + 1) % frameUrls.length;
-  render();
-});
-
-let skys = skyUrls.map((url) => {
+let skyImages = skyUrls.map((url) => {
   const image = new Image();
   image.src = url;
   return image;
 });
 
-left1.addEventListener("click", () => {
-  skyIndex = (skyUrls.length + skyIndex - 1) % skyUrls.length;
-  render();
-});
-right1.addEventListener("click", () => {
-  skyIndex = (skyUrls.length + skyIndex + 1) % skyUrls.length;
-  render();
-});
-
-let extras = extraUrls.map((url) => {
+let extraImages = extraUrls.map((url) => {
   const image = new Image();
   image.src = url;
   return image;
 });
-
-left1.addEventListener("click", () => {
-  extraIndex = (extraUrls.length + extraIndex - 1) % extraUrls.length;
-  render();
-});
-right1.addEventListener("click", () => {
-  extraIndex = (extraUrls.length + extraIndex + 1) % extraUrls.length;
-  render();
-});
-
 
 //Drawing on the canvas
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 frameImages[0].addEventListener("load", render);
+skyImages[0].addEventListener("load", render);
+extraImages[0].addEventListener("load", render);
 
 let imgWidth = 400;
 let centerWidth = (canvas.width / 2) - (imgWidth / 2)
 function render() {
-  let sky = skys[skyIndex];
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  let sky = skyImages[skyIndex];
   ctx.drawImage(sky, centerWidth, 0, imgWidth, 541);
 
   let image = frameImages[frameIndex];
   ctx.drawImage(image, centerWidth, 0, imgWidth, 541);
 
-  let extra = extras[extraIndex];
+  let extra = extraImages[extraIndex];
   ctx.drawImage(extra, centerWidth, 0, imgWidth, 541);
 }
 
