@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <!-- <h1>window maker</h1> -->
+  <audio id="music" controls src="./assets/Sakamoto.mp3"></audio>
   <div id="app">
     <div>
       <input type="image" id="left" src="./assets/icons/left.png" height="40"> </div>
@@ -23,10 +23,12 @@
     <input type="image" src="./assets/icons/winon.png" width="70" height="70" id="button1" class="on">
     <input type="image" src="./assets/icons/cloud.png" width="70" height="70" id="button2" class="off">
     <input type="image" src="./assets/icons/ext.png" width="70" height="70" id="button3" class="off">
-    <input type="image" src="./assets/icons/speak.png" width="70" height="70" id="button4" class="off">
   </div>
-  <button id="gaze">gaze out the window</button>
+  <div id="bottom"> <input type="image" src="./assets/icons/speak.png" width="70" height="70" id="button4" class="off">
+  </div>
+  <div id="bottom"><button onclick="saveImage()">download your window</button></div>
   <p>by <a href="https://cdacanay.com" target="_blank">christina dacanay</a></p>
+
   <script src="src/index.js"></script>
 </body>
 

@@ -1,5 +1,6 @@
 const left = document.getElementById("left");
 const right = document.getElementById("right");
+const gaze = document.getElementById("gaze");
 
 const frameButton = document.getElementById("button1");
 const skyButton = document.getElementById("button2");
@@ -15,20 +16,23 @@ let activeButton = 0;
 let frameUrls = [
   "assets/frame1.png",
   "assets/frame2.png",
-  "assets/frame3.png"
+  "assets/frame3.png",
+  "assets/frame4.png"
 ];
 
 let skyUrls = [
   "assets/sky1.png",
   "assets/sky2.png",
-  "assets/sky3.png"
+  "assets/sky3.png",
+  "assets/sky4.png"
 ];
 
 let extraUrls = [
   "assets/empty.png",
   "assets/extra1.png",
   "assets/extra2.png",
-  "assets/extra3.png"
+  "assets/extra3.png",
+  "assets/extra4.png"
 ];
 
 
@@ -48,13 +52,24 @@ extraButton.addEventListener("click", () => {
   buttonPresses();
 })
 
+let audio = new Audio('assets/Sakamoto.mp3');
+
 soundButton.addEventListener("click", () => {
   let onImg = "assets/icons/speakon.png"
   let offImg = "assets/icons/speak.png"
-  toggle(soundButton, onImg, offImg);
-})
+  if (soundButton.className != "off") {
+    soundButton.src = offImg;
+    soundButton.className = "off";
+    audio.pause();
+  } else {
+    soundButton.src = onImg;
+    soundButton.className = "on";
+    audio.play();
+    audio.loop = true;
+  } return false;
+});
 
-//there must be a better way. arrays??? idk.
+//there must be a better way to do this. arrays??? idk.
 function buttonPresses() {
   if (activeButton == 0) {
     frameButton.src = "assets/icons/winon.png"
@@ -70,16 +85,17 @@ function buttonPresses() {
     extraButton.src = "assets/icons/exton.png"
   }
 }
-//There is def a better way of doing this but I can't be bothered rn
-//I gotta fix this cause sound turns all the other buttons off 
 function toggle(el, onImg, offImg) {
   if (el.className != "off") {
     el.src = offImg;
     el.className = "off";
+    audio.pause();
   }
   else if (el.className == "off") {
     el.src = onImg;
     el.className = "on";
+    audio.play();
+    audio.loop = true;
   }
 
   return false;
@@ -136,16 +152,35 @@ extraImages[0].addEventListener("load", render);
 
 let imgWidth = 400;
 let centerWidth = (canvas.width / 2) - (imgWidth / 2)
+
 function render() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  let sky = skyImages[skyIndex];
-  ctx.drawImage(sky, centerWidth, 0, imgWidth, 541);
-
-  let image = frameImages[frameIndex];
-  ctx.drawImage(image, centerWidth, 0, imgWidth, 541);
-
   let extra = extraImages[extraIndex];
-  ctx.drawImage(extra, centerWidth, 0, imgWidth, 541);
-}
+  let sky = skyImages[skyIndex];
+  let image = frameImages[frameIndex];
 
+  if (extraIndex == 4) {
+
+    ctx.drawImage(sky, centerWidth, 0, imgWidth, 541);
+    ctx.drawImage(extra, centerWidth, 0, imgWidth, 541);
+    ctx.drawImage(image, centerWidth, 0, imgWidth, 541);
+  } else {
+    ctx.drawImage(sky, centerWidth, 0, imgWidth, 541);
+    ctx.drawImage(image, centerWidth, 0, imgWidth, 541);
+    ctx.drawImage(extra, centerWidth, 0, imgWidth, 541);
+  }
+
+}
+function saveImage() {
+  render();
+  let linkToClick = document.createElement('A'); //hacky solution to save file
+  linkToClick.setAttribute('download', 'window.png');
+  linkToClick.setAttribute(
+    'href',
+    canvas
+      .toDataURL('image/png')
+      .replace('image/png', 'image/octet-stream')
+  );
+  let event = new MouseEvent('click');
+  linkToClick.dispatchEvent(event);
+}
