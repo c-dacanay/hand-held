@@ -1,6 +1,5 @@
 const left = document.getElementById("left");
 const right = document.getElementById("right");
-const gaze = document.getElementById("gaze");
 
 const frameButton = document.getElementById("button1");
 const skyButton = document.getElementById("button2");
@@ -10,8 +9,8 @@ const soundButton = document.getElementById("button4");
 let frameIndex = 0;
 let skyIndex = 0;
 let extraIndex = 0;
-
 let activeButton = 0;
+
 //Identifying the assets
 let frameUrls = [
   "assets/frame1.png",
@@ -68,6 +67,7 @@ soundButton.addEventListener("click", () => {
     audio.loop = true;
   } return false;
 });
+
 
 //there must be a better way to do this. arrays??? idk.
 function buttonPresses() {
@@ -160,7 +160,6 @@ function render() {
   let image = frameImages[frameIndex];
 
   if (extraIndex == 4) {
-
     ctx.drawImage(sky, centerWidth, 0, imgWidth, 541);
     ctx.drawImage(extra, centerWidth, 0, imgWidth, 541);
     ctx.drawImage(image, centerWidth, 0, imgWidth, 541);

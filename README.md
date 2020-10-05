@@ -10,5 +10,5 @@ I'm taking a class! Here are the projects. Tryin' class repos this semester, see
 
 [Website V1](https://c-dacanay.github.io/hand-held/homepage/v1/) | [Website V2](https://c-dacanay.github.io/hand-held/homepage/v2/) | [README](https://github.com/c-dacanay/hand-held/tree/master/homepage)
 
-## Mix & Match — Window Creator
-[Website](https://c-dacanay.github.io/hand-held/window-maker/)
+## Mix & Match — Window Maker
+[Website](https://c-dacanay.github.io/hand-held/window-maker/) | [README](https://github.com/c-dacanay/hand-held/tree/master/window-maker) | Blog POst
