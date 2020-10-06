@@ -16,7 +16,6 @@ canvas {
 input {
   border-width: 5px;
   margin: 2px;
-  /* margin-bottom: 25px; */
 }
 
 button {
@@ -26,6 +25,7 @@ font-family: "IBM Plex Mono", monospace;
 border-radius: 3px;
 border-color: #64a999;
 border-style: solid;
+margin: 2px;
 padding: 5px;
 color: #64a999;
 position: relative;
@@ -57,9 +57,10 @@ a {
   border-color: red;
 } */
 
-#bottom{
+#bottom {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 #app {
@@ -68,6 +69,11 @@ a {
   /* height: 100%; */
   display: flex;
   align-items: center;
+}
+
+input.off {
+  filter: grayscale(100%);
+  filter: contrast(0%);
 }
 
 #music {
