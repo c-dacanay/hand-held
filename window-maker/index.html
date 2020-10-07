@@ -23,13 +23,21 @@
     <input type="image" src="./assets/icons/winon.png" width="70" height="70" id="button1" class="on">
     <input type="image" src="./assets/icons/cloudon.png" width="70" height="70" id="button2" class="off">
     <input type="image" src="./assets/icons/exton.png" width="70" height="70" id="button3" class="off">
-    <input type="image" src="./assets/icons/exton.png" width="70" height="70" id="button4" class="off">
+    <input type="image" src="./assets/icons/ext2on.png" width="70" height="70" id="button4" class="off">
   </div>
-  <div id="bottom"> <input type="image" id="left" src="./assets/icons/left.png" height="35">
+  <div class="test" id="msg-in">
+    <p>Share your window with a note.</p>
+    <input type="text" id="message" maxlength="20" value="Thinking of you.">
+    <button onclick="createHash()">copy shareable link</button>
+  </div>
+  <div class="test" id="msg-out"> hi </div>
+
+  <div id="audio">
+    <!-- <input type="image" id="left" src="./assets/icons/left.png" height="35"> -->
     <input type="image" src="./assets/icons/speak.png" width="70" height="70" id="button5" class="off">
-    <input type="image" id="right" src="./assets/icons/right.png" height="35">
+    <!-- <input type="image" id="right" src="./assets/icons/right.png" height="35"> -->
   </div>
-  <div id="bottom"><button onclick="saveImage()">download</button> <button onclick="saveImage()">share</button>
+  <div id="buttons"><button onclick="saveImage()">download</button> <button onclick="shareWindow()">share</button>
   </div>
   <p>by <a href="https://cdacanay.com" target="_blank">christina dacanay</a></p>
 

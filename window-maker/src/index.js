@@ -1,3 +1,7 @@
+//some code credits:
+//save as image function: https://algorat.club/ratmaker/index.html
+//location.hash work: https://github.com/MaxBittker/fridgepoet/
+
 const left = document.getElementById("left");
 const right = document.getElementById("right");
 
@@ -6,6 +10,14 @@ const skyButton = document.getElementById("button2");
 const extraButton = document.getElementById("button3");
 const extraButton2 = document.getElementById("button4")
 const soundButton = document.getElementById("button5");
+
+const bottomBar = document.getElementById("bottom");
+const buttomButtons = document.getElementById("buttons")
+const msgInput = document.getElementById("msg-in")
+const msgOutput = document.getElementById("msg-out")
+const message = document.getElementById("message")
+let myMessage = null;
+// const
 
 let frameIndex = 0;
 let skyIndex = 0;
@@ -62,17 +74,16 @@ extraButton2.addEventListener("click", () => {
   buttonPresses();
 })
 
-let audio = new Audio('assets/Sakamoto.mp3');
 
+//Audio
+let audio = new Audio('assets/Sakamoto.mp3');
 soundButton.addEventListener("click", () => {
-  let onImg = "assets/icons/speakon.png"
-  let offImg = "assets/icons/speak.png"
   if (soundButton.className != "off") {
-    soundButton.src = offImg;
+    soundButton.src = "assets/icons/speak.png";
     soundButton.className = "off";
     audio.pause();
   } else {
-    soundButton.src = onImg;
+    soundButton.src = "assets/icons/speakon.png";
     soundButton.className = "on";
     audio.play();
     audio.loop = true;
@@ -100,7 +111,7 @@ function buttonOn(button) {
   buttonOn.className = "on"
 }
 
-//Connecting frames to buttons
+//connecting frames to buttons
 left.addEventListener("click", () => {
   if (activeButton === 0) {
     frameIndex = (frameUrls.length + frameIndex - 1) % frameUrls.length;
@@ -115,7 +126,6 @@ left.addEventListener("click", () => {
 });
 
 right.addEventListener("click", () => {
-  console.log(activeButton)
   if (activeButton === 0) {
     frameIndex = (frameUrls.length + frameIndex + 1) % frameUrls.length;
   } else if (activeButton === 1) {
@@ -150,13 +160,17 @@ let extraImages = extraUrls.map((url) => {
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-frameImages[0].addEventListener("load", render);
-skyImages[0].addEventListener("load", render);
-extraImages[0].addEventListener("load", render);
+window.addEventListener("load", init);
 
 let imgWidth = 400;
 let centerWidth = (canvas.width / 2) - (imgWidth / 2)
 
+function init() {
+  readHash();
+  render();
+}
+
+//interesting render problems with calling readHash in render. As always, the answer is to have init :P 
 function render() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   let extra = extraImages[extraIndex];
@@ -184,10 +198,51 @@ function render() {
     ctx.drawImage(image, centerWidth, 0, imgWidth, 541);
     ctx.drawImage(extra, centerWidth, 0, imgWidth, 541);
     ctx.drawImage(extra2, centerWidth, 0, imgWidth, 541);
-
   };
-
 }
+
+function shareWindow() {
+  bottomBar.style.display = "none";
+  soundButton.style.display = "none";
+  buttomButtons.style.display = "none";
+  left.style.visibility = "hidden";
+  right.style.visibility = "hidden";
+  msgInput.style.display = "flex";
+}
+
+function createHash() {
+  const msg = message.value;
+  const newWindow = [skyIndex, frameIndex, extraIndex, extraIndex2, msg]
+  console.log(newWindow);
+  location.hash = '#' + b64EncodeUnicode(JSON.stringify(newWindow))
+  console.log(location.hash);
+}
+
+const readHash = () => {
+  if (location.hash) {
+    let x = JSON.parse(b64DecodeUnicode(location.hash.substring(1)));
+    console.log(x);
+    skyIndex = x[0]
+    frameIndex = x[1]
+    extraIndex = x[2]
+    extraIndex2 = x[3]
+    myMessage = x[4]
+
+    bottomBar.style.display = "none";
+    soundButton.style.display = "none";
+    buttomButtons.style.display = "none";
+    left.style.visibility = "hidden";
+    right.style.visibility = "hidden";
+    msgOutput.style.display = "flex";
+
+    msgOutput.innerHTML = myMessage;
+    console.log(myMessage);
+    // render();
+  } else {
+    return [];
+  }
+};
+
 function saveImage() {
   render();
   let linkToClick = document.createElement('A'); //hacky solution to save file
@@ -200,4 +255,16 @@ function saveImage() {
   );
   let event = new MouseEvent('click');
   linkToClick.dispatchEvent(event);
+}
+
+//lmao copy/paste job whats this
+function b64EncodeUnicode(str) {
+  return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function (match, p1) {
+    return String.fromCharCode('0x' + p1);
+  }));
+}
+function b64DecodeUnicode(str) {
+  return decodeURIComponent(Array.prototype.map.call(atob(str), function (c) {
+    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
 }

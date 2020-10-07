@@ -5,7 +5,7 @@ body {
   overflow: hidden;
   background-color: #f9fdf5;
   touch-action: none !important;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "IBM Plex Mono", monospace !important;
 }
 
 canvas {
@@ -63,6 +63,39 @@ a {
   align-items: center;
 }
 
+#msg-in {
+  display: none;  
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* why does the font family need to be reiterated here? */
+#message {
+font-family: "IBM Plex Mono", monospace;
+border-width: 2px;
+border-color: #64a999;
+border-style: solid;
+padding: 4px;
+margin: 5px;
+color: #000000;
+background-color: #f9fdf5;
+width: 200px;
+}
+
+#msg-out {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+}
+#audio, #buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #app {
   margin-top: 15px;
   width: 100%;
