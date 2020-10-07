@@ -1,6 +1,7 @@
 //some code credits:
 //save as image function: https://algorat.club/ratmaker/index.html
 //location.hash work: https://github.com/MaxBittker/fridgepoet/
+//url to clipboard: https://stackoverflow.com/questions/49618618/copy-current-url-to-clipboard
 
 const left = document.getElementById("left");
 const right = document.getElementById("right");
@@ -16,6 +17,7 @@ const buttomButtons = document.getElementById("buttons")
 const msgInput = document.getElementById("msg-in")
 const msgOutput = document.getElementById("msg-out")
 const message = document.getElementById("message")
+const makeButton = document.getElementById("make");
 let myMessage = null;
 // const
 
@@ -213,15 +215,26 @@ function shareWindow() {
 function createHash() {
   const msg = message.value;
   const newWindow = [skyIndex, frameIndex, extraIndex, extraIndex2, msg]
-  console.log(newWindow);
+  // console.log(newWindow);
   location.hash = '#' + b64EncodeUnicode(JSON.stringify(newWindow))
-  console.log(location.hash);
+  // console.log(location.hash);
+
+  //copy URL to clipboard
+  let dummy = document.createElement('input'),
+    text = window.location.href;
+  document.body.appendChild(dummy);
+  dummy.value = text;
+  dummy.select();
+  document.execCommand('copy');
+  document.body.removeChild(dummy);
+
+  let shareMsg = document.getElementById("share-msg")
+  shareMsg.innerHTML = 'Copied link and message to clipboard!'
 }
 
 const readHash = () => {
   if (location.hash) {
     let x = JSON.parse(b64DecodeUnicode(location.hash.substring(1)));
-    console.log(x);
     skyIndex = x[0]
     frameIndex = x[1]
     extraIndex = x[2]
@@ -229,15 +242,15 @@ const readHash = () => {
     myMessage = x[4]
 
     bottomBar.style.display = "none";
-    soundButton.style.display = "none";
     buttomButtons.style.display = "none";
     left.style.visibility = "hidden";
     right.style.visibility = "hidden";
+    makeButton.style.display = "flex";
+    soundButton.style.display = "flex";
     msgOutput.style.display = "flex";
 
     msgOutput.innerHTML = myMessage;
     console.log(myMessage);
-    // render();
   } else {
     return [];
   }

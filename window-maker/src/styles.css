@@ -62,14 +62,16 @@ a {
   justify-content: center;
   align-items: center;
 }
-
+#audio, #buttons, #make, #msg-in, #msg-out {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #msg-in {
   display: none;  
   /* display: flex; */
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+ }
 
 /* why does the font family need to be reiterated here? */
 #message {
@@ -86,16 +88,13 @@ width: 200px;
 
 #msg-out {
   display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-style: italic;
 }
-#audio, #buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+#make {
+  display: none;
 }
+
 #app {
   margin-top: 15px;
   width: 100%;
