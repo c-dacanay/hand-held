@@ -15,7 +15,7 @@
   <div id="app">
     <div>
       <input type="image" id="left" src="./assets/icons/left.png" height="40"> </div>
-    <canvas id="canvas" width="450" height="550"></canvas>
+    <canvas id="canvas" width="450" height="520"></canvas>
     <div>
       <input type="image" id="right" src="./assets/icons/right.png" height="40"> </div>
   </div>
@@ -25,19 +25,23 @@
     <input type="image" src="./assets/icons/exton.png" width="70" height="70" id="button3" class="off">
     <input type="image" src="./assets/icons/ext2on.png" width="70" height="70" id="button4" class="off">
   </div>
+  </div>
+  <div class="test" id="msg-out"> </div>
+  <div id="audio">
+    <input type="image" id="audioleft" src="./assets/icons/left.png" height="20">
+    <input type="image" src="./assets/icons/speak.png" width="70" height="70" id="button5" class="off">
+    <input type="image" id="audioright" src="./assets/icons/right.png" height="20"> </div>
+  <div id="make"><button onclick="location.href=''">make your own window</button></div>
   <div class="test" id="msg-in">
-    <p id="share-msg">Share your window with a note.</p>
-    <input type="text" id="message" maxlength="20" value="Thinking of you.">
+    <p id="share-msg">Share your window with a note.<br>Don't forget to sign it!</p>
+    <input type="text" id="message" maxlength="40" value="thinking of you. -c">
     <button id="url" onclick="createHash()">copy shareable link</button>
   </div>
-  <div class="test" id="msg-out"> hi </div>
-  <div id="audio">
-    <input type="image" src="./assets/icons/speak.png" width="70" height="70" id="button5" class="off">
+  <div id="buttons"><button onclick="saveImage()">download image</button> <button onclick="shareWindow()">share
+      window</button>
   </div>
-  <div id="make"><button onclick="location.href=''">make your own window</button></div>
-  <div id="buttons"><button onclick="saveImage()">download</button> <button onclick="shareWindow()">share</button>
-  </div>
-  <p>by <a href="https://cdacanay.com" target="_blank">christina dacanay</a></p>
+  <p>art & code by <a href="https://cdacanay.com" target="_blank">christina dacanay</a><br>
+    music by <a href="https://soundcloud.com/dpeterschmidt" target="_blank">daniel peterschmidt</a></p>
 
   <script src="src/index.js"></script>
 </body>

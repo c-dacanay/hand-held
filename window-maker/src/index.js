@@ -25,6 +25,7 @@ let frameIndex = 0;
 let skyIndex = 0;
 let extraIndex = 0;
 let extraIndex2 = 0;
+let audioIndex = 0;
 let activeButton = 0;
 
 //Identifying the assets
@@ -54,6 +55,12 @@ let extraUrls = [
   "assets/extra6.png"
 ];
 
+let audioUrls = [
+  "assets/audio/breadcrumb.mp3",
+  "assets/audio/ep1h.mp3",
+  "assets/audio/peppermint-bark.mp3",
+  "assets/audio/terrace.mp3",
+]
 
 //Bottom Buttons
 frameButton.addEventListener("click", () => {
@@ -77,8 +84,11 @@ extraButton2.addEventListener("click", () => {
 })
 
 
-//Audio
-let audio = new Audio('assets/Sakamoto.mp3');
+//Audio stuff
+const audioLeft = document.getElementById("audioleft")
+const audioRight = document.getElementById("audioright")
+let audio = new Audio(audioUrls[audioIndex]);
+
 soundButton.addEventListener("click", () => {
   if (soundButton.className != "off") {
     soundButton.src = "assets/icons/speak.png";
@@ -92,6 +102,30 @@ soundButton.addEventListener("click", () => {
   } return false;
 });
 
+audioLeft.addEventListener("click", () => {
+  audioIndex = (audioUrls.length + audioIndex - 1) % audioUrls.length;
+  console.log(audio.src);
+  if (soundButton.className == "on") {
+    audio.pause();
+    audio.src = audioUrls[audioIndex];
+    audio.play();
+  } else {
+    return
+  }
+});
+
+audioRight.addEventListener("click", () => {
+  audioIndex = (audioUrls.length + audioIndex + 1) % audioUrls.length;
+  if (soundButton.className == "on") {
+    audio.pause();
+    audio.src = audioUrls[audioIndex];
+    audio.play();
+  } else {
+    return
+  }
+});
+
+//Menu buttons
 function buttonPresses() {
   if (activeButton == 0) {
     buttonOn(frameButton);
@@ -103,17 +137,16 @@ function buttonPresses() {
     buttonOn(extraButton2);
   }
 }
+
 function buttonOn(button) {
   let buttonOn = button;
   frameButton.className = "off"
   skyButton.className = "off"
   extraButton.className = "off"
   extraButton2.className = "off"
-
   buttonOn.className = "on"
 }
 
-//connecting frames to buttons
 left.addEventListener("click", () => {
   if (activeButton === 0) {
     frameIndex = (frameUrls.length + frameIndex - 1) % frameUrls.length;
@@ -162,6 +195,9 @@ let extraImages = extraUrls.map((url) => {
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
+frameImages[0].addEventListener("load", render);
+skyImages[0].addEventListener("load", render);
+extraImages[0].addEventListener("load", render);
 window.addEventListener("load", init);
 
 let imgWidth = 400;
@@ -203,9 +239,12 @@ function render() {
   };
 }
 
+
+//Share functions
 function shareWindow() {
+  const audioBar = document.getElementById("audio");
   bottomBar.style.display = "none";
-  soundButton.style.display = "none";
+  audioBar.style.display = "none";
   buttomButtons.style.display = "none";
   left.style.visibility = "hidden";
   right.style.visibility = "hidden";
@@ -214,10 +253,8 @@ function shareWindow() {
 
 function createHash() {
   const msg = message.value;
-  const newWindow = [skyIndex, frameIndex, extraIndex, extraIndex2, msg]
-  // console.log(newWindow);
+  const newWindow = [skyIndex, frameIndex, extraIndex, extraIndex2, audioIndex, msg]
   location.hash = '#' + b64EncodeUnicode(JSON.stringify(newWindow))
-  // console.log(location.hash);
 
   //copy URL to clipboard
   let dummy = document.createElement('input'),
@@ -239,17 +276,21 @@ const readHash = () => {
     frameIndex = x[1]
     extraIndex = x[2]
     extraIndex2 = x[3]
-    myMessage = x[4]
+    audioIndex = x[4]
+    myMessage = x[5]
 
     bottomBar.style.display = "none";
     buttomButtons.style.display = "none";
     left.style.visibility = "hidden";
     right.style.visibility = "hidden";
+    audioleft.style.visibility = "hidden";
+    audioright.style.visibility = "hidden";
     makeButton.style.display = "flex";
     soundButton.style.display = "flex";
     msgOutput.style.display = "flex";
 
     msgOutput.innerHTML = myMessage;
+    audio = new Audio(audioUrls[audioIndex]);
     console.log(myMessage);
   } else {
     return [];
