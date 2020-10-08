@@ -10,12 +10,12 @@ This most recent update has a few more assets and a share button where you can s
 
 ### Credit
 #### Content
-All illustrations by me!
+All illustrations by me!  <br>
 All music by [Daniel Peterschmidt](https://soundcloud.com/dpeterschmidt)
 
 #### Code
-Character Creator: Max Bittker's [Egg Maker](https://codesandbox.io/s/egg-maker-wfjyv?file=/src/index.js) 
-Hashing: Max Bittker's [Fridge Poetry](https://github.com/MaxBittker/fridgepoet/)
+Character Creator: Max Bittker's [Egg Maker](https://codesandbox.io/s/egg-maker-wfjyv?file=/src/index.js)  <br>
+Hashing: Max Bittker's [Fridge Poetry](https://github.com/MaxBittker/fridgepoet/)  <br>
 Downloading images on button click: Algorat's [Rat Maker](https://algorat.club/ratmaker/index.html)
 
 ## Author
