@@ -1,6 +1,6 @@
 ## CSS Toy
 
-[Website](https://c-dacanay.github.io/hand-held/css-toy/) (viewed best on mobile) | Blog Post
+[Website](https://c-dacanay.github.io/hand-held/css-toy/) (viewed best on mobile) | [Blog Post](http://www.cdacanay.com/itp-blog/2020/9/20/css-toy-opacity)
 
 Things I wanted to get out of this assignment:
 
