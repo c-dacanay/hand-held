@@ -8,6 +8,9 @@ This most recent update has a few more assets and a share button where you can s
 
 [This window](https://c-dacanay.github.io/hand-held/window-maker/#WzIsMSwyLDQsMiwidGhpcyBpcyBteSB3aW5kb3cgaW4gYnJvb2tseW4gLWMiXQ==) is the most realistic, but I think [this one is my favorite](https://c-dacanay.github.io/hand-held/window-maker/#WzIsMCwyLDUsMywiSSBoYXZlIHRoZXNlIHBvdHMgYXQgaG9tZSAtYyJd).
 
+### Note to Max: 
+Would love to go over npm and dependencies for local environments! The node modules are here, but I was getting tons of errors when I tried to import functions into my js file. 
+
 ### Credit
 #### Content
 All illustrations by me!  <br>
