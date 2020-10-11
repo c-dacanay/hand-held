@@ -13,7 +13,8 @@ const skyButton = document.getElementById("button2");
 const extraButton = document.getElementById("button3");
 const extraButton2 = document.getElementById("button4")
 const soundButton = document.getElementById("button5");
-const downloadButton = document.getElementById("download")
+const downloadButton = document.getElementById("download");
+
 const bottomBar = document.getElementById("bottom");
 const buttomButtons = document.getElementById("buttons")
 const msgInput = document.getElementById("msg-in")
@@ -308,23 +309,6 @@ downloadButton.addEventListener("click", () => {
     saveAs(blob, "window.png");
   })
 });
-
-// function saveImage() {
-//   canvas.toBlob(function (blob) {
-//     saveAs(blob, "window.png");
-//   })
-// render();
-// let linkToClick = document.createElement('A'); //hacky solution to save file
-// linkToClick.setAttribute('download', 'window.png');
-// linkToClick.setAttribute(
-//   'href',
-//   canvas
-//     .toDataURL('image/png')
-//     .replace('image/png', 'image/octet-stream')
-// );
-// let event = new MouseEvent('click');
-// linkToClick.dispatchEvent(event);
-// }
 
 //lmao copy/paste job whats this
 function b64EncodeUnicode(str) {
