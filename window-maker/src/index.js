@@ -249,6 +249,9 @@ function render() {
 const shareButton = document.getElementById("share")
 shareButton.addEventListener("click", shareWindow)
 
+const linkButton = document.getElementById("url")
+linkButton.addEventListener("click", createHash)
+
 function shareWindow() {
   const audioBar = document.getElementById("audio");
   console.log('uhhh')
