@@ -246,8 +246,12 @@ function render() {
 }
 
 //Share functions
+const shareButton = document.getElementById("share")
+shareButton.addEventListener("click", shareWindow)
+
 function shareWindow() {
   const audioBar = document.getElementById("audio");
+  console.log('uhhh')
   bottomBar.style.display = "none";
   audioBar.style.display = "none";
   buttomButtons.style.display = "none";
