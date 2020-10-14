@@ -22,7 +22,6 @@ const msgOutput = document.getElementById("msg-out")
 const message = document.getElementById("message")
 const makeButton = document.getElementById("make");
 let myMessage = null;
-// const
 
 let frameIndex = 0;
 let skyIndex = 0;
@@ -280,7 +279,6 @@ function createHash() {
   let shareMsg = document.getElementById("share-msg")
   shareMsg.innerHTML = 'Copied link and message to clipboard!'
 }
-
 
 const readHash = () => {
   if (location.hash) {
