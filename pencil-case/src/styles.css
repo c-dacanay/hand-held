@@ -7,6 +7,7 @@ body {
 canvas {
   box-shadow: 1px 1px 10px black;
   z-index: 0;
+  background-color: #fffdf5;
 }
 
 #buttons {
@@ -21,16 +22,13 @@ canvas {
 
 button {
   font-family: "IBM Plex Mono", monospace;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  border-color: #64a999;
+  border-color: #8e6d39;
   border-style: solid;
-  margin: 2px;
-  padding: 5px;
-  color: #64a999;
+  margin: 10px;
+  padding: 10px;
+  color: #8e6d39;
   position: relative;
-  background-color: #f9fdf5;
+  background-color: #fffdf5;
 }
 
 button:hover {

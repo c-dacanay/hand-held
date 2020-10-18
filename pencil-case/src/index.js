@@ -19,20 +19,17 @@ function init() {
   pen1.addEventListener("click", () => {
     activePen = 0;
     clearPen();
-    console.log(activePen)
   })
   pen2.addEventListener("click", () => {
     activePen = 1;
     clearPen();
-    console.log(activePen)
   })
   pen3.addEventListener("click", () => {
     activePen = 2;
     clearPen();
-    console.log(activePen)
   })
   clearButton.addEventListener("click", () => {
-    console.log('hi4')
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
   })
 
 }
@@ -63,7 +60,7 @@ canvas.addEventListener("mousemove", (evt) => {
 });
 
 canvas.addEventListener("touchend", (evt) => {
-  drawEnd(last_x, last_y);
+  // drawEnd(last_x, last_y);
 });
 
 canvas.addEventListener("mouseout", () => {
@@ -72,8 +69,11 @@ canvas.addEventListener("mouseout", () => {
 
 canvas.addEventListener("mouseup", (evt) => {
   penDown = false;
-  drawEnd(evt.clientX, evt.clientY);
+  // drawEnd(evt.clientX, evt.clientY);
 });
+
+let speed = .2;
+let change = .5;
 
 function drawStart(x, y) {
   penDown = true;
@@ -84,19 +84,25 @@ function drawStart(x, y) {
     ctx.arc(x, y, 1, 0, 2 * Math.PI);
     ctx.shadowBlur = 10;
     ctx.shadowColor = 'black';
+    ctx.closePath();
   } else if (activePen == 1) {
     // pen 2
     pen2(x, y, .5);
   } else {
     // pen 3
+    change = 0;
+    ctx.beginPath();
+    ctx.lineWidth = 1;
+    ctx.arc(x, y, 30, 0, 2 * Math.PI);
+    ctx.fillStyle = 'black'
+    ctx.fill();
+    ctx.closePath();
   };
 
   last_x = x;
   last_y = y;
 }
 
-// let img = new Image();
-// img.src = "./src/dots.png"
 function drawMove(x, y) {
   if (activePen == 0) {
     //pen 1
@@ -107,46 +113,37 @@ function drawMove(x, y) {
     ctx.stroke();
     ctx.shadowBlur = 5;
     ctx.shadowColor = 'black';
+
   } else if (activePen == 1) {
     // pen 2
     pen2(x, y, .3);
   } else {
     // pen 3
+    speed = bounce(change, 0, 40, speed);
+    change += speed
+    ctx.beginPath();
+    ctx.arc(x, y, 30 + change, 0, 2 * Math.PI);
+    ctx.fillStyle = `hsl(` + (120 + change * 7) + `, 100%, 60%)`
+    ctx.fill();
+    ctx.strokeStyle = 'black'
+    ctx.stroke();
+    ctx.closePath();
   };
-
-
-  // var dist = distanceBetween(last_x, x);
-  // var angle = angleBetween(last_y, y);
-  // for (var i = 0; i < dist; i++) {
-  //   x = last_x + (Math.sin(angle) * i);
-  //   y = last_y + (Math.cos(angle) * i);
-  //   ctx.save();
-  //   ctx.translate(x, y);
-  //   ctx.scale(0.5, 0.5);
-  // ctx.rotate(Math.PI * 20 / 180);
-  // ctx.translate(x - 150, y - 125);
-  // ctx.drawImage(img, x - 150, y - 125);
-  // ctx.restore();
-  // }
-  // ctx.drawImage(img, x - 25, y - 25, 50, 50)
-  // ctx.stroke();
-
 
   last_x = x;
   last_y = y;
 }
 
+
+function bounce(pos, low, high, speed) {
+  if (pos < low || pos > high) {
+    return speed *= -1;
+  } else {
+    return speed;
+  }
+}
+
 function drawEnd(x, y) {
-
-  // ctx.drawImage(img, x - 150, y - 125)
-
-  //Pen1
-  // ctx.lineWidth = 1;
-  // ctx.lineJoin = ctx.lineCap = 'round';
-  // ctx.lineTo(x, y);
-  // ctx.stroke();
-  // ctx.shadowBlur = 2;
-  // ctx.shadowColor = 'black';
 
 }
 
@@ -154,10 +151,9 @@ function pen2(x, y, a) {
   ctx.globalAlpha = a;
   ctx.save();
   ctx.translate(x, y);
-  ctx.beginPath();
   ctx.rotate(Math.PI / 180 * getRandomInt(0, 360));
   for (var i = 20; i--;) {
-    ctx.fillStyle = 'red';
+    ctx.fillStyle = 'black';
     ctx.beginPath();
     ctx.moveTo(15, 15);
     ctx.lineTo(15, 0);
@@ -165,24 +161,16 @@ function pen2(x, y, a) {
     ctx.closePath();
   }
   ctx.fill();
-  // ctx.stroke();
   ctx.restore();
 }
+
 function clearPen() {
   ctx.shadowBlur = 0;
   ctx.lineWidth = 0;
-  ctx.globalCanvas = 1;
-}
-function distanceBetween(point1, point2) {
-  return Math.sqrt(Math.pow(point2.x - point1.x, 2) + Math.pow(point2.y - point1.y, 2));
-}
-function angleBetween(point1, point2) {
-  return Math.atan2(point2.x - point1.x, point2.y - point1.y);
-}
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  ctx.globalAlpha = 1;
+  ctx.shadowColor = 'black'
 }
 
-function norm_random(size) {
-  return (Math.random() - 0.5) * size;
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
