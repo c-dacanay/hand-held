@@ -6,7 +6,7 @@ canvas.height = window.innerHeight;
 let penDown = false;
 let last_x = 0;
 let last_y = 0;
-let activePen = 1;
+let activePen = 2;
 
 window.addEventListener("load", init);
 //buttons
@@ -77,6 +77,7 @@ canvas.addEventListener("mouseup", (evt) => {
 
 function drawStart(x, y) {
   penDown = true;
+
   if (activePen == 0) {
     //pen 1
     ctx.beginPath();
@@ -85,6 +86,7 @@ function drawStart(x, y) {
     ctx.shadowColor = 'black';
   } else if (activePen == 1) {
     // pen 2
+    pen2(x, y, .5);
   } else {
     // pen 3
   };
@@ -93,8 +95,8 @@ function drawStart(x, y) {
   last_y = y;
 }
 
-let img = new Image();
-img.src = "./src/dots.png"
+// let img = new Image();
+// img.src = "./src/dots.png"
 function drawMove(x, y) {
   if (activePen == 0) {
     //pen 1
@@ -107,74 +109,7 @@ function drawMove(x, y) {
     ctx.shadowColor = 'black';
   } else if (activePen == 1) {
     // pen 2
-    // ctx.beginPath();
-    // ctx.lineWidth = 0;
-    // ctx.moveTo(last_x, last_y);
-    // ctx.stroke();
-
-    let randomness = 10;
-    // let loop = 0;
-    // for (let i = 0; i < 3; i++) {
-
-    //   ctx.globalAlpha = .2;
-    //   if (loop === 1) {
-    //     ctx.fillStyle = `rgba(255, 242, 0)`
-    //     ctx.fill();
-    //     loop++;
-    //   } else if (loop === 2) {
-    //     ctx.fillStyle = `rgba(0, 225, 255)`
-    //     ctx.fill();
-    //     loop = 0;
-    //   } else {
-    //     ctx.fillStyle = `rgba(255, 0, 123)`
-    //     ctx.fill();
-    //     loop++;
-    //   }
-    //   ctx.beginPath();
-    //   ctx.arc(x + norm_random(randomness),
-    //     y + norm_random(randomness),
-    //     40, 0, Math.PI * 2);
-    // }
-    ctx.save();
-    console.log(x, y)
-    // ctx.translate(x, y);
-    ctx.beginPath();
-    // ctx.rotate(Math.PI / 180 * getRandomInt(0, 360));
-    // for (var i = 2; i--;) {
-    ctx.beginPath();
-    ctx.fillStyle = 'white';
-    ctx.arc(x, y,
-      10, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.closePath();
-    // triangle
-    // ctx.fillStyle = 'red';
-    // ctx.beginPath();
-    // ctx.moveTo(125, 125);
-    // ctx.lineTo(125, 0);
-    // ctx.lineTo(0, 125);
-    // ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    // ctx.beginPath();
-    // ctx.strokeStyle = `rgba(255, 242, 0)`
-    // ctx.arc(x, y, 10, 0, 2 * Math.PI);
-    // ctx.strokeStyle = `rgba(0, 225, 255)`
-    // ctx.arc(x, y, 10, 0, 2 * Math.PI);
-    // ctx.strokeStyle = `rgba(255, 0, 123)`
-    // ctx.arc(x, y, 10, 0, 2 * Math.PI);
-    // ctx.lineTo(0, length);
-    // ctx.translate(0, length);
-    // ctx.rotate((Math.PI * 2 / 10));
-    // ctx.lineTo(0, -length);
-    // ctx.translate(0, -length);
-    // ctx.rotate(-(Math.PI * 6 / 10));
-    // }
-    // ctx.lineTo(0, length);
-    ctx.closePath();
-    ctx.stroke();
-    ctx.restore();
+    pen2(x, y, .3);
   } else {
     // pen 3
   };
@@ -215,9 +150,28 @@ function drawEnd(x, y) {
 
 }
 
+function pen2(x, y, a) {
+  ctx.globalAlpha = a;
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.beginPath();
+  ctx.rotate(Math.PI / 180 * getRandomInt(0, 360));
+  for (var i = 20; i--;) {
+    ctx.fillStyle = 'red';
+    ctx.beginPath();
+    ctx.moveTo(15, 15);
+    ctx.lineTo(15, 0);
+    ctx.lineTo(0, 1);
+    ctx.closePath();
+  }
+  ctx.fill();
+  // ctx.stroke();
+  ctx.restore();
+}
 function clearPen() {
   ctx.shadowBlur = 0;
   ctx.lineWidth = 0;
+  ctx.globalCanvas = 1;
 }
 function distanceBetween(point1, point2) {
   return Math.sqrt(Math.pow(point2.x - point1.x, 2) + Math.pow(point2.y - point1.y, 2));
