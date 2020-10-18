@@ -6,7 +6,7 @@ canvas.height = window.innerHeight;
 let penDown = false;
 let last_x = 0;
 let last_y = 0;
-let activePen = 2;
+let activePen = 0;
 
 window.addEventListener("load", init);
 //buttons
