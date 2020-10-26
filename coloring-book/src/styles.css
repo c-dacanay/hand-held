@@ -10,14 +10,14 @@ body {
   font-family: sans-serif;
   background: linear-gradient(
     10deg,
-    #784d30,
-    #784d30,
-    #583f37,
-    #431757,
-    #2f153f
+    #8b4212,
+    #8b4212,
+    #440d39,
+    #2e004d,
+    #190035
   );
   touch-action: none !important;
-  font-family: "IBM Plex Mono", monospace !important;
+  font-family: "Henny Penny", monospace !important;
 }
 
 #ground {
@@ -48,6 +48,11 @@ p {
 a {
   color: orange;
   font-style: italic;
+}
+
+h1 {
+  color: white;
+  text-align: center;
 }
 
 /* .test {
@@ -113,5 +118,9 @@ a {
   #app #grave {
     top: 40%;
     position: absolute;
+  }
+
+  h1 {
+    font-size: 11px;
   }
 }

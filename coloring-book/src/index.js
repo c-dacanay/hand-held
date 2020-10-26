@@ -123,11 +123,11 @@ function drawStart(x, y) {
   if (activePen == 0) {
 
   } else if (activePen == 1) {
-    ctx.beginPath();
-    ctx.arc(x, y, 5, 0, 2 * Math.PI);
-    ctx.fillStyle = 'black'
-    ctx.fill();
-    ctx.closePath();
+    // ctx.beginPath();
+    // ctx.arc(x, y, 5, 0, 2 * Math.PI);
+    // ctx.fillStyle = 'black'
+    // ctx.fill();
+    // ctx.closePath();
   } else {
     ctx.beginPath();
     ctx.arc(x, y, 2, 0, 2 * Math.PI);
@@ -143,18 +143,19 @@ function drawStart(x, y) {
 
 function drawMove(x, y) {
   if (activePen == 0) {
-    ctx.fillStyle = `rgb(255, 255, 255, .4)`
+    ctx.fillStyle = `rgb(255, 255, 255, .6)`
     let interpolatedPoints = pointsAlongLine(x, y, last_x, last_y, 0.1);
     interpolatedPoints.forEach(function (p) {
       ctx.fillRect(p.x + norm_random(30), p.y + norm_random(30), 1, 1);
     });
   } else if (activePen == 1) {
 
-    ctx.beginPath();
-    ctx.arc(x, y, 5, 0, 2 * Math.PI);
-    ctx.fillStyle = 'black'
-    ctx.fill();
-    ctx.closePath();
+    ctx.lineWidth = 4;
+    ctx.lineJoin = ctx.lineCap = 'round';
+    ctx.strokeStyle = 'black'
+    ctx.moveTo(last_x, last_y);
+    ctx.lineTo(x, y);
+    ctx.stroke();
 
   } else if (activePen == 2) {
     ctx.lineWidth = 1;
