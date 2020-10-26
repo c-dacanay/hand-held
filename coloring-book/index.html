@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Coloring Book</title>
+  <meta name="description" content="Make yerself a dang ghost.">
+  <meta charset="UTF-8" />
+  <script src="https://cdn.jsdelivr.net/g/filesaver.js"></script>
+  <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQEBAQEBAQEBAQEBAAAAAQEBAQEBAQEBAQEBAQAAAAEBAQEBAQEBAQEBAQEAAAABAQEBAQEBAQEBAQEBAAAAAQEBAQEBAQEBAQEBAQAAAAEBAAEAAQABAAEBAQEAAAABAQABAAEAAQABAQEBAAAAAQEAAAEBAAEAAQEBAQAAAAEBAAAAAQABAAAAAQEAAAABAQABAAEAAQABAAEBAAAAAQEAAAABAAEAAAABAQAAAAEBAQEBAQEBAQEBAQEAAAAAAAEBAQEBAQEBAQAAAAAAAAABAQEBAQEBAQEAAAAAAAAAAAEBAQEBAQEAAAAAAAAAAAAAAAEBAQAAAAAAAMABAADAAQAAwAEAAMABAADAAQAAyqEAAMqhAADMoQAAzrkAAMqpAADOuQAAwAEAAPAHAADwBwAA+A8AAP4/AAA=" rel="icon" type="image/x-icon" />
+  <!--
+  <meta property="og:image"
+    content="https://github.com/c-dacanay/hand-held/blob/master/window-maker/assets/preview.png?raw=true" /> -->
+  <meta property="og:image:height" content="300" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;1,200;1,400;1,600&display=swap"
+    rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="src/styles.css" />
+</head>
+
+<body>
+  <div id="app">
+    <div class="test" id="buttons">
+      <input type="image" class="test" id="moon" src="./assets/moon.png" width="70">
+      <input type="image" class="test" id="bat" src="./assets/bat.png" width="70">
+      <input type="image" class="test" id="blood" src="./assets/blood.png" height="60"> </div>
+
+    <!-- <canvas id="grave" class="test"></canvas> -->
+    <canvas id="canvas"></canvas>
+<img src="assets/grave.png" id="grave" width="250">
+    <div class="test" id="utilities">
+      <input type="image" class="test util" id="undo" src="./assets/undo.png" width="80"> 
+        <input type="image" class="test util" id="save" src="./assets/save.png" width="80" >
+    </div>
+<div id="ground">
+</div>
+    <div class="test" id="about">
+    <p>art & code by <a href="https://cdacanay.com" target="_blank">christina dacanay</a><br>
+      <a href="https://github.com/c-dacanay/hand-held/tree/master/window-maker" target="blank">about the project</a></p></div>
+  </div>
+  <!-- <div id="buttons"><button id="download">download image</button> <button id="share">share
+      window</button> -->
+  </div>
+
+
+  <script type="module" src="src/index.js"></script>
+</body>
+
+</html>

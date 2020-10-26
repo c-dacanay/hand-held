@@ -1,0 +1,117 @@
+html,
+body {
+  position: relative;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  background: linear-gradient(
+    10deg,
+    #784d30,
+    #784d30,
+    #583f37,
+    #431757,
+    #2f153f
+  );
+  touch-action: none !important;
+  font-family: "IBM Plex Mono", monospace !important;
+}
+
+#ground {
+  position: absolute;
+  height: 26%;
+  width: 100%;
+  bottom: 0%;
+  background-color: #07061b;
+  z-index: 0;
+}
+
+button:hover {
+  background-color: #ffffff;
+}
+
+button:focus,
+input:focus {
+  outline: 0;
+}
+
+p {
+  font-size: 12px;
+  line-height: 1rem;
+  text-align: center;
+  color: white;
+}
+
+a {
+  color: orange;
+  font-style: italic;
+}
+
+/* .test {
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: red;
+} */
+
+#save {
+  visibility: hidden;
+}
+
+#buttons {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  top: 0%;
+  position: absolute;
+  z-index: 2;
+}
+
+#about {
+  align-self: flex-end;
+  position: absolute;
+  bottom: 0%;
+  z-index: 2;
+}
+#app {
+  /* margin-top: 10px; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: relative; */
+}
+
+#app #canvas {
+  /* top: 5%; */
+  z-index: 1;
+  /* background-color: #828282; */
+  position: absolute;
+}
+
+#app #grave {
+  top: 50%;
+  position: absolute;
+  z-index: 0;
+}
+
+#app #utilities {
+  top: 70%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 2;
+  position: absolute;
+}
+
+@media screen and (max-width: 730px) {
+  #app #grave {
+    top: 40%;
+    position: absolute;
+  }
+}
