@@ -39,6 +39,7 @@ function pushState() {
 
   if (undoStack.length > 30) {
     undoStack.shift();
+    console.log('shift');
   }
 }
 
