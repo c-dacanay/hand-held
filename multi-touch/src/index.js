@@ -117,7 +117,7 @@ function render() {
   } else if (animal == 3) {
     ctx.drawImage(booper, p4.x - 310, p4.y - 850)
   } else {
-    ctx.drawImage(booper, p3.x - 290, p3.y - 600)
+    ctx.drawImage(booper, p5.x - 290, p5.y - 650)
   }
   // console.log(animal)
   // }
