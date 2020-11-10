@@ -4,17 +4,21 @@ body {
   position: relative;
   background-size: 20px 20px;
   font-family: "IBM Plex Mono", monospace !important;
-  /* background-image: linear-gradient(to right, #aaa 1px, transparent 1px),
-    linear-gradient(to bottom, #aaa 1px, transparent 1px); */
 }
 
 h1 {
   color: red;
   text-align: center;
+  font-family: "Comic Sans", monospace;
 }
 
 p {
   text-align: center;
+}
+
+span {
+  text-align: center;
+  font-size: 7pt;
 }
 
 canvas {
