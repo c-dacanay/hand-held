@@ -15,7 +15,7 @@ html {
 .draggable {
   position: absolute;
   transform: translate(-50%, -50%);
-  filter: drop-shadow(1px 1px 3px white);
+  /* filter: drop-shadow(1px 1px 3px white); */
   display: block;
   user-select: none;
   margin: 0;
