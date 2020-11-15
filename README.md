@@ -17,3 +17,11 @@ I'm taking a class! Here are the projects. Tryin' class repos this semester, see
 ## Pencil Case
 
 [Website](https://c-dacanay.github.io/hand-held/pencil-case/)
+
+## Multi-Touch — Boop Zone
+
+[Website](https://c-dacanay.github.io/hand-held/multi-touch/)
+
+## Drag & Drop - Flower Pool
+
+[Website](https://c-dacanay.github.io/hand-held/drag-drop/)
