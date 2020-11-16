@@ -22,7 +22,7 @@ html {
 }
 
 img.draggable {
-  width: 8%;
+  width: 15%;
 }
 
 .header {
@@ -39,11 +39,11 @@ img.draggable {
   height: 80px;
   width: 80px;
   flex-grow: 0;
-  filter: drop-shadow(1px 1px 1px black);
+  filter: drop-shadow(1px 1px 1px lightblue);
 }
 
 #pool {
-  height: 80%;
+  width: 75%;
   z-index: 0;
   margin: 0 auto;
   display: table;

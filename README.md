@@ -24,4 +24,4 @@ I'm taking a class! Here are the projects. Tryin' class repos this semester, see
 
 ## Drag & Drop - Flower Pool
 
-[Website](https://c-dacanay.github.io/hand-held/drag-drop/)
+[Website](https://c-dacanay.github.io/hand-held/drag-drop/)gi

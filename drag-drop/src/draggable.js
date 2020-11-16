@@ -87,7 +87,7 @@ function moveAction(ev) {
     y = pMid.y - offset_y + initialHeight / 2;
 
     activeElement.style.transform = `
-     translate(-50%,-50%)
+     translate(-150%,-150%)
      scale(${newScale})
      rotate(${newAngle * (180 / Math.PI)}deg)`;
   }

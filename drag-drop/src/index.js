@@ -18,8 +18,8 @@ f1Button.addEventListener("click", function () {
   <image crossorigin="anonymous"
    class="draggable"
    src=${f1URL}
-   style="left:${window.innerWidth / 2 + Math.random() * ranNum}px;
-          top:${window.innerHeight / 2 + Math.random() * ranNum}px;" />
+   style="left:${window.innerWidth / 2.5 + Math.random() * ranNum}px;
+          top:${window.innerHeight / 3 + Math.random() * ranNum}px;" />
   `;
 });
 
@@ -27,9 +27,9 @@ f2Button.addEventListener("click", function () {
   appDiv.innerHTML += `
   <image crossorigin="anonymous"
    class="draggable"
-   src=${f3URL}
-   style="left:${window.innerWidth / 2 + Math.random() * ranNum}px;
-          top:${window.innerHeight / 2 + Math.random() * ranNum}px;" />
+   src=${f2URL}
+   style="left:${window.innerWidth / 2.5 + Math.random() * ranNum}px;
+          top:${window.innerHeight / 3 + Math.random() * ranNum}px;" />
   `;
 });
 
@@ -37,9 +37,9 @@ f3Button.addEventListener("click", function () {
   appDiv.innerHTML += `
   <image crossorigin="anonymous"
    class="draggable"
-   src=${f2URL}
-   style="left:${window.innerWidth / 2 + Math.random() * ranNum}px;
-          top:${window.innerHeight / 2 + Math.random() * ranNum}px;" />
+   src=${f3URL}
+   style="left:${window.innerWidth / 2.5 + Math.random() * ranNum}px;
+          top:${window.innerHeight / 3 + Math.random() * ranNum}px;" />
   `;
 });
 
@@ -48,8 +48,8 @@ f4Button.addEventListener("click", function () {
   <image crossorigin="anonymous"
    class="draggable"
    src=${f4URL}
-   style="left:${window.innerWidth / 2 + Math.random() * ranNum}px;
-          top:${window.innerHeight / 2 + Math.random() * ranNum}px;" />
+   style="left:${window.innerWidth / 2.5 + Math.random() * ranNum}px;
+          top:${window.innerHeight / 3 + Math.random() * ranNum}px;" />
   `;
 });
 
