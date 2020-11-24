@@ -1,6 +1,8 @@
 
 window.addEventListener("load", init);
 
+let maxWidth = window.innerWidth;
+let maxHeight = window.innerHeight;
 function init() {
   // module aliases
   var Engine = Matter.Engine,
@@ -20,8 +22,8 @@ function init() {
     element: document.body,
     engine: engine,
     options: {
-      width: window.innerWidth,
-      height: window.innerHeight,
+      width: maxWidth,
+      height: maxHeight,
       showAxes: true,
       showVelocity: true
     }
@@ -33,16 +35,20 @@ function init() {
   var runner = Runner.create();
   Runner.run(runner, engine);
 
-
   //variable for friction
-  let fr = 2;
+  let fr = 10;
   let afr = .001;
-  let d = 1;
+  let d = 10;
+
   World.add(world, [
-    // walls
-    Bodies.rectangle(400, 600, window.innerWidth, 50, { isStatic: true }),
-    Bodies.rectangle(window.innerHeight, 300, 50, window.innerHeight, { isStatic: true }),
-    Bodies.rectangle(0, 300, 50, window.innerHeight, { isStatic: true })
+    // floor
+    Bodies.rectangle(maxWidth / 2, maxHeight * .8, maxWidth * 5, 50, { isStatic: true }),
+
+    //right wall
+    Bodies.rectangle(maxHeight, 300, 50, maxHeight, { isStatic: true }),
+
+    //left wall
+    Bodies.rectangle(0, 300, 50, maxHeight, { isStatic: true })
   ]);
 
   //all the bodies
@@ -97,10 +103,6 @@ function init() {
     }),
   ];
 
-  // for (i in bodiesArray.length) {
-  //   Body.setDensity(bodiesArray[1], 200)
-  //   console.log('bam')
-  // }
 
   World.add(world, bodiesArray);
 
@@ -124,11 +126,11 @@ function init() {
   // fit the render viewport to the scene
   Render.lookAt(render, {
     min: { x: 0, y: 0 },
-    max: { x: 800, y: 600 }
+    max: { x: maxHeight, y: maxWidth }
   });
 
-  engine.world.gravity.y = .6;
+  engine.world.gravity.y = .9;
   // run the engine
   Engine.run(engine);
 
-}
+}         
