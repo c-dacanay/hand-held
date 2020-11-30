@@ -1,6 +1,4 @@
 //notes from max
-//render => loop to body => svg element
-//kinetic typewriter https://github.com/MaxBittker/kinematic-typewriter/blob/master/src/physics.ts#L131
 
 //scaling bodies: the world doesn't have a size, because you have walls. 
 //can calculate ext of walls so that it fits the screen
@@ -101,6 +99,14 @@ function init() {
     World.add(world, bodiesArray);
   } else {
 
+    //gahhhh
+    var path = '<svg width="322" height="65" viewBox="0 0 322 65" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M3.00005 37C40 -20 294 0.499996 320 25C346 49.5 -33.9999 94 3.00005 37Z" fill="#C4C4C4"/></svg>';
+    // debugger;
+    var vertices = Svg.pathToVertices(path, 30);
+    var body = Bodies.fromVertices(200, 200, vertices);
+
+    World.add(engine.world, body);
+
     // let pathData = `M 3.00005 37C40 -20 294 0.499996 320 25C346 49.5 -33.9999 94 3.00005 37Z`;
     // let svgData = `<svg width="322" height="65" viewBox="0 0 322 65" fill="none" xmlns="http://www.w3.org/2000/svg">
     // <path d="M3.00005 37C40 -20 294 0.499996 320 25C346 49.5 -33.9999 94 3.00005 37Z" fill="#C4C4C4"/>
@@ -113,10 +119,6 @@ function init() {
     // path = `<path d="${pathData}" style="${style}"></path>`;
     // console.log(path, 20)
     // return path;
-
-    // var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    // World.add(world, path)
-    // console.log(path)
 
   }
 
@@ -133,7 +135,6 @@ function init() {
 
   World.add(world, mouseConstraint);
 
-  // keep the mouse in sync with rendering
   render.mouse = mouse;
 
   // fit the render viewport to the scene
