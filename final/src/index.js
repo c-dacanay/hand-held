@@ -1,120 +1,128 @@
+//notes from max
+//render => loop to body => svg element
+//kinetic typewriter https://github.com/MaxBittker/kinematic-typewriter/blob/master/src/physics.ts#L131
+
+//scaling bodies: the world doesn't have a size, because you have walls. 
+//can calculate ext of walls so that it fits the screen
+//always make the world 200px wide, and then renderer, scale to fit
+//OR have the world respond according to frame
+
+//vote predetermined stones
+//if renderer is outputting svg elements 
+//SVG paths are different than arbitrary SVGs
+//path is DSL 
+//    if (!debug) {
+//  box.innerHTML = ` ${paths.join("\n")} `;
+// }
+
+//https://observablehq.com/@plmrry/positioning-text-with-matter-js
+//Matter.Svg.pathToVertices(path, [sampleLength=15])
+//verteces is just points as a data structure
+
+//path as a mask in svg
+//https://coderwall.com/p/blx8kw/svg-clippath-images
+
 
 window.addEventListener("load", init);
 
-let maxWidth = window.innerWidth;
-let maxHeight = window.innerHeight;
+// let debug = false;
+let debug = true;
+
 function init() {
-  // module aliases
+
+  let myCanvas = document.getElementById("matter");
+  let width = window.innerWidth;
+  let height = window.innerHeight;
+  let button = document.getElementById("newButton")
+
+  console.log(width, height)
   var Engine = Matter.Engine,
     Render = Matter.Render,
     World = Matter.World,
     Bodies = Matter.Bodies,
     Runner = Matter.Runner,
     MouseConstraint = Matter.MouseConstraint,
-    Mouse = Matter.Mouse;
+    Mouse = Matter.Mouse,
+    Vertices = Matter.Vertices,
+    Svg = Matter.Svg;
 
-  // create an engine
-  var engine = Engine.create(),
+  var engine = Engine.create({
+    // positionIterations: 5,
+    constraintIterations: 5,
+    // enableSleeping: true
+  }),
     world = engine.world;
 
-  // create a renderer
+  // if (debug) {
   var render = Render.create({
     element: document.body,
+    canvas: myCanvas,
     engine: engine,
     options: {
-      width: maxWidth,
-      height: maxHeight,
-      showAxes: true,
-      showVelocity: true
+      width: window.innerWidth,
+      height: window.innerHeight,
+      // showAxes: true,
+      // showVelocity: true,
+      background: 'transparent',
+      wireframes: false
     }
   });
-
-  // run the renderer
   Render.run(render);
+  // }
 
   var runner = Runner.create();
   Runner.run(runner, engine);
+
 
   //variable for friction
   let fr = 10;
   let afr = .001;
   let d = 10;
 
-  World.add(world, [
-    // floor
-    Bodies.rectangle(maxWidth / 2, maxHeight * .8, maxWidth * 5, 50, { isStatic: true }),
+  if (debug) {
+    World.add(world, [
+      // floor
+      Bodies.rectangle(window.innerWidth / 2, window.innerHeight * .9, window.innerWidth * 5, 50, { isStatic: true }),
+      //right wall
+      Bodies.rectangle(window.innerWidth - 20, window.innerHeight / 2, 50, window.innerHeight, { isStatic: true }),
+      //left wall
+      Bodies.rectangle(0, window.innerHeight / 2, 50, window.innerHeight, { isStatic: true })
+    ]);
 
-    //right wall
-    Bodies.rectangle(maxHeight, 300, 50, maxHeight, { isStatic: true }),
+    //all the bodies
+    let bodiesArray = [
+      Bodies.rectangle(200, 200, width / 2, height / 8, {
+        chamfer: { radius: [20, 50, 10, 70] },
+        friction: fr,
+        frictionAir: afr,
+        density: d
+      })];
 
-    //left wall
-    Bodies.rectangle(0, 300, 50, maxHeight, { isStatic: true })
-  ]);
+    World.add(world, bodiesArray);
+  } else {
 
-  //all the bodies
-  let bodiesArray = [
-    Bodies.rectangle(200, 200, 600, 100, {
-      chamfer: { radius: 20 },
-      friction: fr,
-      frictionAir: afr,
-      density: d
-    }),
+    let pathData = `M 3.00005 37C40 -20 294 0.499996 320 25C346 49.5 -33.9999 94 3.00005 37Z`;
+    let svgData = `<svg width="322" height="65" viewBox="0 0 322 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.00005 37C40 -20 294 0.499996 320 25C346 49.5 -33.9999 94 3.00005 37Z" fill="#C4C4C4"/>
+    </svg>`
+    Svg.pathToVertices(pathData);
 
-    Bodies.rectangle(300, 200, 100, 100, {
-      chamfer: { radius: [90, 0, 0, 0] },
-      friction: fr,
-      frictionAir: afr,
-      density: d
-    }),
+    // let path = null;
+    // const style = `fill: "white"; fill-opacity: 1; stroke: grey; stroke-width: 1px; stroke-opacity: 0.5`;
 
-    Bodies.rectangle(400, 200, 200, 200, {
-      chamfer: { radius: [150, 20, 40, 20] },
-      friction: fr,
-      frictionAir: afr,
-      density: d
-    }),
+    // path = `<path d="${pathData}" style="${style}"></path>`;
+    // console.log(path, 20)
+    // return path;
+  }
 
-    Bodies.rectangle(200, 200, 200, 200, {
-      chamfer: { radius: [150, 20, 150, 20] },
-      friction: fr,
-      frictionAir: afr,
-      density: d
-    }),
-
-    Bodies.rectangle(300, 200, 200, 50, {
-      chamfer: { radius: [25, 25, 0, 0] },
-      friction: fr,
-      frictionAir: afr,
-      density: d
-    }),
-
-    Bodies.polygon(200, 100, 8, 80, {
-      chamfer: { radius: 30 },
-      friction: fr,
-      frictionAir: afr,
-      density: d
-    }),
-
-    Bodies.polygon(300, 100, 5, 80, {
-      chamfer: { radius: [10, 40, 20, 40, 10] },
-      friction: fr,
-      frictionAir: afr,
-      density: d
-    }),
-  ];
-
-
-  World.add(world, bodiesArray);
-
-  // add mouse control
   var mouse = Mouse.create(render.canvas),
     mouseConstraint = MouseConstraint.create(engine, {
       mouse: mouse,
       constraint: {
         stiffness: 0.2,
-        // render: {
-        //   visible: false
-        // }
+        render: {
+          visible: false
+        }
       }
     });
 
@@ -124,13 +132,32 @@ function init() {
   render.mouse = mouse;
 
   // fit the render viewport to the scene
-  Render.lookAt(render, {
-    min: { x: 0, y: 0 },
-    max: { x: maxHeight, y: maxWidth }
-  });
+  // Render.lookAt(render, {
+  //   min: { x: 0, y: 0 },
+  //   max: { x: window.innerHeight, y: window.innerWidth }
+  // });
 
-  engine.world.gravity.y = .9;
+  // engine.world.gravity.y = .9;
   // run the engine
   Engine.run(engine);
 
-}         
+  button.addEventListener("click", () => {
+    let ranX = Math.random() * Math.floor(window.innerWidth - 100);
+    console.log(ranX)
+
+    if (debug) {
+      let newBod = [Bodies.rectangle(ranX, 200, 200, 50, {
+        chamfer: { radius: [25, 25, 10, 2] },
+        friction: fr,
+        frictionAir: afr,
+        density: d
+      })];
+
+      World.add(world, newBod)
+    }
+  })
+
+}
+
+
+

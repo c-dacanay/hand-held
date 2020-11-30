@@ -1,12 +1,39 @@
 html,
 body {
+  overflow: hidden;
+  /* display: flex; */
+  /* flex-direction: column; */
+  font-family: "IBM Plex Mono", monospace;
+}
+
+#newButton {
+  font-family: "IBM Plex Mono", monospace;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border-style: solid;
+  margin: 2px;
+  padding: 5px;
+  background-color: #ffffff;
+}
+
+#container {
   position: relative;
 }
 
-canvas {
-  z-index: 0;
+#menu {
+  position: fixed;
+  display: block;
+  /* margin-top: 50%; */
+  bottom: 0;
+  padding-bottom: 2%;
+  left: 50%;
+  border-width: 2px;
+  border-color: crimson;
+  border-style: dashed;
+  /* z-index: 10; */
 }
 
-svg {
-  z-index: 10;
+canvas {
+  z-index: 1;
 }
