@@ -91,7 +91,7 @@ function init() {
 
     //all the bodies
     let bodiesArray = [
-      Bodies.rectangle(200, 200, width / 2, height / 8, {
+      Bodies.rectangle(200, 200, width / 4, height / 8, {
         chamfer: { radius: [20, 50, 10, 70] },
         friction: fr,
         frictionAir: afr,
@@ -101,11 +101,11 @@ function init() {
     World.add(world, bodiesArray);
   } else {
 
-    let pathData = `M 3.00005 37C40 -20 294 0.499996 320 25C346 49.5 -33.9999 94 3.00005 37Z`;
-    let svgData = `<svg width="322" height="65" viewBox="0 0 322 65" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M3.00005 37C40 -20 294 0.499996 320 25C346 49.5 -33.9999 94 3.00005 37Z" fill="#C4C4C4"/>
-    </svg>`
-    Svg.pathToVertices(pathData);
+    // let pathData = `M 3.00005 37C40 -20 294 0.499996 320 25C346 49.5 -33.9999 94 3.00005 37Z`;
+    // let svgData = `<svg width="322" height="65" viewBox="0 0 322 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+    // <path d="M3.00005 37C40 -20 294 0.499996 320 25C346 49.5 -33.9999 94 3.00005 37Z" fill="#C4C4C4"/>
+    // </svg>`
+    // Svg.pathToVertices(pathData);
 
     // let path = null;
     // const style = `fill: "white"; fill-opacity: 1; stroke: grey; stroke-width: 1px; stroke-opacity: 0.5`;
@@ -113,6 +113,11 @@ function init() {
     // path = `<path d="${pathData}" style="${style}"></path>`;
     // console.log(path, 20)
     // return path;
+
+    // var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    // World.add(world, path)
+    // console.log(path)
+
   }
 
   var mouse = Mouse.create(render.canvas),

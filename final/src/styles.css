@@ -1,8 +1,8 @@
 html,
 body {
   overflow: hidden;
-  /* display: flex; */
-  /* flex-direction: column; */
+  display: flex;
+  flex-direction: column;
   font-family: "IBM Plex Mono", monospace;
 }
 
@@ -17,23 +17,16 @@ body {
   background-color: #ffffff;
 }
 
-#container {
-  position: relative;
-}
-
 #menu {
   position: fixed;
   display: block;
-  /* margin-top: 50%; */
   bottom: 0;
   padding-bottom: 2%;
   left: 50%;
-  border-width: 2px;
-  border-color: crimson;
-  border-style: dashed;
-  /* z-index: 10; */
 }
 
-canvas {
-  z-index: 1;
-}
+/* .test {
+  border-width: 2px;
+  border-color: crimson;
+  border-style: solid;
+} */
