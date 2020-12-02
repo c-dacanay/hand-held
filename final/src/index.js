@@ -23,8 +23,8 @@
 
 window.addEventListener("load", init);
 
-// let debug = false;
-let debug = true;
+let debug = false;
+// let debug = true;
 
 function init() {
 
@@ -46,7 +46,7 @@ function init() {
 
   var engine = Engine.create({
     // positionIterations: 5,
-    constraintIterations: 5,
+    // constraintIterations: 5,
     // enableSleeping: true
   }),
     world = engine.world;
@@ -73,20 +73,20 @@ function init() {
 
 
   //variable for friction
-  let fr = 10;
+  let fr = .6;
   let afr = .001;
   let d = 10;
 
-  if (debug) {
-    World.add(world, [
-      // floor
-      Bodies.rectangle(window.innerWidth / 2, window.innerHeight * .9, window.innerWidth * 5, 50, { isStatic: true }),
-      //right wall
-      Bodies.rectangle(window.innerWidth - 20, window.innerHeight / 2, 50, window.innerHeight, { isStatic: true }),
-      //left wall
-      Bodies.rectangle(0, window.innerHeight / 2, 50, window.innerHeight, { isStatic: true })
-    ]);
+  World.add(world, [
+    // floor
+    Bodies.rectangle(window.innerWidth / 2, window.innerHeight * .9, window.innerWidth * 5, 50, { isStatic: true }),
+    //right wall
+    Bodies.rectangle(window.innerWidth - 20, window.innerHeight / 2, 50, window.innerHeight, { isStatic: true }),
+    // left wall
+    Bodies.rectangle(0, window.innerHeight / 2, 50, window.innerHeight, { isStatic: true })
+  ]);
 
+  if (debug) {
     //all the bodies
     let bodiesArray = [
       Bodies.rectangle(200, 200, width / 4, height / 8, {
@@ -99,14 +99,11 @@ function init() {
     World.add(world, bodiesArray);
   } else {
 
-    //gahhhh
-    var path = '<svg width="322" height="65" viewBox="0 0 322 65" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M3.00005 37C40 -20 294 0.499996 320 25C346 49.5 -33.9999 94 3.00005 37Z" fill="#C4C4C4"/></svg>';
-    // debugger;
-    var vertices = Svg.pathToVertices(path, 30);
-    var body = Bodies.fromVertices(200, 200, vertices);
-
-    World.add(engine.world, body);
-
+    // var path = '<svg width="322" height="65" viewBox="0 0 322 65" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M3.00005 37C40 -20 294 0.499996 320 25C346 49.5 -33.9999 94 3.00005 37Z" fill="#C4C4C4"/></svg>';
+    // for (i = 0; i < 3; i++) {
+    newRock();
+    // World.add(engine.world, body);
+    // }
     // let pathData = `M 3.00005 37C40 -20 294 0.499996 320 25C346 49.5 -33.9999 94 3.00005 37Z`;
     // let svgData = `<svg width="322" height="65" viewBox="0 0 322 65" fill="none" xmlns="http://www.w3.org/2000/svg">
     // <path d="M3.00005 37C40 -20 294 0.499996 320 25C346 49.5 -33.9999 94 3.00005 37Z" fill="#C4C4C4"/>
@@ -148,7 +145,7 @@ function init() {
   Engine.run(engine);
 
   button.addEventListener("click", () => {
-    let ranX = Math.random() * Math.floor(window.innerWidth - 100);
+    // let ranX = Math.random() * Math.floor(window.innerWidth - 100);
     console.log(ranX)
 
     if (debug) {
@@ -160,10 +157,30 @@ function init() {
       })];
 
       World.add(world, newBod)
+    } else {
+      newRock();
     }
   })
 
-}
+  function newRock() {
+    ranX = Math.random() * Math.floor(window.innerWidth - 100);
+    let newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path'); //Create a path in SVG's namespace 
+    newElement.setAttribute("d", "M3.00005 37C40 -20 294 0.499996 320 25C346 49.5 -33.9999 94 3.00005 37Z"); //Set path's data
+    newElement.style.stroke = "#000"; //Set stroke colour
+    newElement.style.strokeWidth = "5px";
+    newElement.style.strokelinecap = "round";
 
+    // debugger;
+    let vertices = Svg.pathToVertices(newElement, 30);
+
+    let body = Bodies.fromVertices(ranX, 0, vertices, {
+      friction: fr,
+      // frictionAir: afr,
+      // density: d
+    });
+
+    World.add(engine.world, body);
+  }
+}
 
 
