@@ -4,6 +4,8 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "IBM Plex Mono", monospace;
+  width: 100%;
+  height: 100%;
 }
 
 #newButton {
@@ -23,6 +25,11 @@ body {
   bottom: 0;
   padding-bottom: 2%;
   left: 50%;
+}
+
+#matter {
+  width: 100%;
+  height: 100%;
 }
 
 /* .test {
