@@ -3,33 +3,57 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  font-family: "IBM Plex Mono", monospace;
+  align-items: center;
+  font-family: "Karla", monospace;
   width: 100%;
   height: 100%;
 }
 
-#newButton {
-  font-family: "IBM Plex Mono", monospace;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  border-style: solid;
-  margin: 2px;
-  padding: 5px;
-  background-color: #ffffff;
+img:hover {
+  opacity: 0.8;
 }
 
 #menu {
+  display: flex;
   position: fixed;
-  display: block;
+  width: 100%;
   bottom: 0;
+  justify-content: space-around;
   padding-bottom: 2%;
-  left: 50%;
+  /* left: 50%; */
+  /* transform: translate(-50%); */
 }
 
 #matter {
   width: 100%;
   height: 100%;
+}
+
+#credits {
+  display: none;
+  top: 30%;
+  padding: 20px;
+  position: fixed;
+  z-index: 100;
+  /* background-image: url(bg.svg); */
+  /* background-color: rgba(194, 212, 220, 0.8); */
+  justify-content: center;
+  background-color: #ffff;
+  box-shadow: 5px 5px 0px 8px #c2d4dc;
+  border-radius: 25px;
+}
+
+p {
+  margin-left: 25px;
+}
+
+span {
+  font-size: 12px;
+}
+@media only screen and (max-width: 760px) {
+  #touch {
+    display: none;
+  }
 }
 
 /* .test {

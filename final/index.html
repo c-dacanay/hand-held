@@ -4,24 +4,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="src/styles.css" />
-    <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;1,200;1,400;1,600&display=swap"
-    rel="stylesheet"
-  />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital@0;1&display=swap" rel="stylesheet">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAABfWlIAAAAAACwvMAAIBAUA/v3+AH2NiADe2dAALysrAJCSigD9/PkAU0o+AImKgABiYlUAR0Q/ADA9OwBKRz8ABQABAA8OCwBeWU4ADQ0OACgnJwAkKicAsK2hABoYGABsamAAaGBTAKeekgBPTEIAamZbAHh4agAJCwwA/v79AMG9tgAhISAAk86hAE+edQD39vMALywqAGNaTAAlJCAAICAbAJaQgQBsvo4ABQUFAFlaVQDX0cgAJiYjAPz+/gCXopkA/f7+AP7+/gBXVlAAOEk8ACYvKwABAwMAIBocAGJhUgADAwMAW1lQAG9vZAAGAwMAYF9YABkUFQABAQEAg4N2AIqgsQA7OzsAGR0dAGFdVgAnKCcA9PPtAFhWSQAfHR0AYmBWAFFmZwBaUkQAhKyQAGy+kAAyLCQAxL+zAGppXgBraV4AjpqRADQ3NwBDQkEAsaiaAAQDBQClx68AHyYmAFhYTQCPwKsANTMqAP7//gAvi2UAGBcXABkXFwDj39UAMi0rAP39/ABAPj0AbrmHAAYGBgC8tagAUE1EAP7//wBLST8A////AHZ1ZwCAgHEAFxcYAHyujQAJCAkAKi8vABkgIACDgnQAAAICAHpzZQDEvK4AU0o9ADdPSQA6qHAATEhDAAgICgB1dGsAdnRrACMfGwAPDw8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWoyVXQmSwp2GRoyamoBAQFqUVkMOEdpWycCeWZqAQEBahYbZT8/OW8TFz5EagEBAWpoKTpnDy4eK04GamoBAQFqXEByHTtQPVNCAAlqAQEBajJgKDZzVnp+SGEvagEBAWpqdRwPB15tXzckamoBAQFqahgLcFMsfDNFVGpqAQEBampqEhE8AxB9IB9qagEBAWpqYmxrSQ0lFGN7amoBAQFqajIyLRVDITU0RmpqAQEBampqQQgOWHFPMkxqagEBAWpqamowUgVKd25qamoBAQFqampqMgRaXSMxampqAQEBampqald4ZCoEampqagEBAWpqajIiTTIxampqamoBAYADAACAAwAAgAMAAIADAACAAwAAgAMAAIADAACAAwAAgAMAAIADAACAAwAAgAMAAIADAACAAwAAgAMAAIADAAA=" rel="icon" type="image/x-icon" />
+    <meta name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, 
+     user-scalable=0' >
   <script type="text/javascript" src="src/matter.js"></script>
   <script type="text/javascript" src="src/pathseg.js"></script>
   <script src="src/decomp.js" type="text/javascript"></script>
   <title>Stone Stacker</title>
   </head>
-  <!-- <svg width="322" height="65" viewBox="0 0 322 65" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M3.00005 37C40 -20 294 0.499996 320 25C346 49.5 -33.9999 94 3.00005 37Z" fill="#C4C4C4"/>
-    </svg> -->
     <div id="touch"/>
-
   </div>
     <canvas id="matter"></canvas>
-    <div id="menu" class="test"><button id="newButton">New Stones</button></div>
-  
+    <div id="credits" onclick="creditsOff()">
+      <!-- <h1>Stone Stacker</h1> -->
+      <img src="src/ss.svg">
+      <p>made with 💖 <br></vr>by <a href="http://www.cdacanay.com/">Christina Dacanay</a><br><span><a href="https://github.com/c-dacanay/hand-held/tree/master/final">⛰github repo</a></p></span>
+    </div>
+
+    <div id="menu" class="test">
+      <img src="src/about.svg" class="menuitem" id="nameButton">
+      <img src="src/new.svg" class="menuitem" id="rockButton">
+      <img src="src/clear.svg" class="menuitem" id="clearButton">
   <script type="text/javascript" src="src/index.js"></script>
  
   </body>
