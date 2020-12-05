@@ -20,8 +20,6 @@ img:hover {
   bottom: 0;
   justify-content: space-around;
   padding-bottom: 2%;
-  /* left: 50%; */
-  /* transform: translate(-50%); */
 }
 
 #matter {
@@ -35,8 +33,6 @@ img:hover {
   padding: 20px;
   position: fixed;
   z-index: 100;
-  /* background-image: url(bg.svg); */
-  /* background-color: rgba(194, 212, 220, 0.8); */
   justify-content: center;
   background-color: #ffff;
   box-shadow: 5px 5px 0px 8px #c2d4dc;
@@ -49,11 +45,6 @@ p {
 
 span {
   font-size: 12px;
-}
-@media only screen and (max-width: 760px) {
-  #touch {
-    display: none;
-  }
 }
 
 /* .test {

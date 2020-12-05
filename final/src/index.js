@@ -1,24 +1,6 @@
-//notes from max
-
-//scaling bodies: the world doesn't have a size, because you have walls. 
-//can calculate ext of walls so that it fits the screen
-//always make the world 200px wide, and then renderer, scale to fit
-//OR have the world respond according to frame
-
-//vote predetermined stones
-//if renderer is outputting svg elements 
-//SVG paths are different than arbitrary SVGs
-//path is DSL 
-//    if (!debug) {
-//  box.innerHTML = ` ${paths.join("\n")} `;
-// }
-
-//https://observablehq.com/@plmrry/positioning-text-with-matter-js
-//Matter.Svg.pathToVertices(path, [sampleLength=15])
-//verteces is just points as a data structure
-
-//path as a mask in svg
-//https://coderwall.com/p/blx8kw/svg-clippath-images
+//CODE CREDIT:
+//Max Bittker taught me everything I know about SVGs. Thanks Max.
+//https://github.com/MaxBittker/kinematic-typewriter
 
 window.addEventListener("load", init);
 
@@ -38,8 +20,6 @@ function init(evt) {
   width = canvas.width;
   height = canvas.height;
 
-
-  // console.log(width, height)
   var Engine = Matter.Engine,
     Render = Matter.Render,
     World = Matter.World,
@@ -57,7 +37,6 @@ function init(evt) {
   }),
     world = engine.world;
 
-  // var render
   if (debug) {
     render = Render.create({
       element: document.body,
@@ -105,7 +84,7 @@ function init(evt) {
 
   //variable for friction
   let fr = .9;
-  // let afr = .001;
+  let afr = .001;
   let d = .01;
 
 
@@ -139,17 +118,12 @@ function init(evt) {
 
   World.add(world, mouseConstraint);
 
-  // render.mouse = mouse;
-
-  // }
   engine.world.gravity.y = 2;
-  // run the engine
   Engine.run(engine);
 
 
   rockButton.addEventListener("click", () => {
     let ranX = Math.random() * Math.floor(window.innerWidth - 100);
-    // console.log(ranX)
     if (debug) {
       let newBod = [Bodies.rectangle(ranX, 200, 200, 50, {
         chamfer: { radius: [25, 25, 10, 2] },
@@ -157,7 +131,6 @@ function init(evt) {
         frictionAir: afr,
         density: d
       })];
-
       World.add(world, newBod)
     } else {
       newRock();
@@ -190,19 +163,18 @@ function init(evt) {
       World.remove(world, world.bodies[i])
     }
   })
+
   function addBounds() {
     let floor = Bodies.rectangle(canvas.width, canvas.height / 1.1, canvas.width * 10, 200, {
       isStatic: true, render: {
         fillStyle: "#fff"
       }
     });
-
     let rwall = Bodies.rectangle(canvas.width, canvas.height / 2, 200, canvas.width * 2, {
       isStatic: true, render: {
         fillStyle: "#fff"
       }
     });
-
     let lwall = Bodies.rectangle(0, canvas.height / 2, 200, canvas.height * 2, {
       isStatic: true, render: {
         fillStyle: "#fff"
@@ -230,7 +202,6 @@ function init(evt) {
   });
 
 }
-
 
 function creditsOff() {
   credits.style.display = "none";
