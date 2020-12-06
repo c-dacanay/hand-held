@@ -22,6 +22,9 @@ I'm taking a class! Here are the projects. Tryin' class repos this semester, see
 
 [Website](https://c-dacanay.github.io/hand-held/multi-touch/)
 
-## Drag & Drop - Flower Pool
+## Drag & Drop — Flower Pool
 
-[Website](https://c-dacanay.github.io/hand-held/drag-drop/)gi
+[Website](https://c-dacanay.github.io/hand-held/drag-drop/)
+
+## Stone Stacker
+[Website](https://c-dacanay.github.io/hand-held/final/)
