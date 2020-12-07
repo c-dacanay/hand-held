@@ -83,9 +83,9 @@ function init(evt) {
   })();
 
   //variable for friction
-  let fr = .9;
+  let fr = 1;
   let afr = .001;
-  let d = .01;
+  let d = .05;
 
 
   if (debug) {
